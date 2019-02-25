@@ -15,9 +15,15 @@
 		5CAA0A50221BE5CA00BDE83B /* MainFineDustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A4F221BE5CA00BDE83B /* MainFineDustCell.swift */; };
 		5CAA0A53221BE8CF00BDE83B /* UIView+LayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A52221BE8CF00BDE83B /* UIView+LayoutAnchor.swift */; };
 		5CAA0A56221D727300BDE83B /* FineDustService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A55221D727300BDE83B /* FineDustService.swift */; };
+		5CAA0A642223792800BDE83B /* FineDustServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A632223792800BDE83B /* FineDustServiceType.swift */; };
+		5CAA0A6722237A8E00BDE83B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A6622237A8E00BDE83B /* Router.swift */; };
+		5CAA0A6A2223901600BDE83B /* MainFineDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A692223901600BDE83B /* MainFineDust.swift */; };
+		6FC448C8DF0E58F2C4CF9A89 /* Pods_FineDust_Copy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FineDust_Copy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B46C5AA91C64E7EF4214841 /* Pods-FineDust_Copy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FineDust_Copy.release.xcconfig"; path = "Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy.release.xcconfig"; sourceTree = "<group>"; };
 		5CAA0A35221BE28300BDE83B /* FineDust_Copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FineDust_Copy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAA0A38221BE28300BDE83B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CAA0A3D221BE28300BDE83B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -28,6 +34,10 @@
 		5CAA0A4F221BE5CA00BDE83B /* MainFineDustCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFineDustCell.swift; sourceTree = "<group>"; };
 		5CAA0A52221BE8CF00BDE83B /* UIView+LayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayoutAnchor.swift"; sourceTree = "<group>"; };
 		5CAA0A55221D727300BDE83B /* FineDustService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustService.swift; sourceTree = "<group>"; };
+		5CAA0A632223792800BDE83B /* FineDustServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustServiceType.swift; sourceTree = "<group>"; };
+		5CAA0A6622237A8E00BDE83B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		5CAA0A692223901600BDE83B /* MainFineDust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFineDust.swift; sourceTree = "<group>"; };
+		F2F11509E4D9B2758BC68603 /* Pods-FineDust_Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FineDust_Copy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FC448C8DF0E58F2C4CF9A89 /* Pods_FineDust_Copy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +57,8 @@
 			children = (
 				5CAA0A37221BE28300BDE83B /* FineDust_Copy */,
 				5CAA0A36221BE28300BDE83B /* Products */,
+				AD49F851CA92EB15F7D5A083 /* Pods */,
+				D90FA90280CF71FD6087E2EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +83,8 @@
 		5CAA0A4C221BE2B000BDE83B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5CAA0A6522237A7500BDE83B /* Router */,
+				5CAA0A6822238FDC00BDE83B /* Model */,
 				5CAA0A54221D725700BDE83B /* Service */,
 				5CAA0A4E221BE3DE00BDE83B /* MainFineDust */,
 				5CAA0A51221BE6E600BDE83B /* Utility */,
@@ -108,9 +123,43 @@
 		5CAA0A54221D725700BDE83B /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				5CAA0A632223792800BDE83B /* FineDustServiceType.swift */,
 				5CAA0A55221D727300BDE83B /* FineDustService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		5CAA0A6522237A7500BDE83B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				5CAA0A6622237A8E00BDE83B /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		5CAA0A6822238FDC00BDE83B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5CAA0A692223901600BDE83B /* MainFineDust.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD49F851CA92EB15F7D5A083 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2F11509E4D9B2758BC68603 /* Pods-FineDust_Copy.debug.xcconfig */,
+				3B46C5AA91C64E7EF4214841 /* Pods-FineDust_Copy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D90FA90280CF71FD6087E2EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,9 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CAA0A47221BE28400BDE83B /* Build configuration list for PBXNativeTarget "FineDust_Copy" */;
 			buildPhases = (
+				B8FA41CB10CF9ACC6E799BD0 /* [CP] Check Pods Manifest.lock */,
 				5CAA0A31221BE28300BDE83B /* Sources */,
 				5CAA0A32221BE28300BDE83B /* Frameworks */,
 				5CAA0A33221BE28300BDE83B /* Resources */,
+				FB4D89C1857AC3721D483F53 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -179,13 +230,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B8FA41CB10CF9ACC6E799BD0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FineDust_Copy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB4D89C1857AC3721D483F53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5CAA0A31221BE28300BDE83B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5CAA0A50221BE5CA00BDE83B /* MainFineDustCell.swift in Sources */,
+				5CAA0A642223792800BDE83B /* FineDustServiceType.swift in Sources */,
 				5CAA0A56221D727300BDE83B /* FineDustService.swift in Sources */,
+				5CAA0A6722237A8E00BDE83B /* Router.swift in Sources */,
+				5CAA0A6A2223901600BDE83B /* MainFineDust.swift in Sources */,
 				5CAA0A53221BE8CF00BDE83B /* UIView+LayoutAnchor.swift in Sources */,
 				5CAA0A4B221BE2AD00BDE83B /* MainViewController.swift in Sources */,
 				5CAA0A39221BE28300BDE83B /* AppDelegate.swift in Sources */,
@@ -332,6 +433,7 @@
 		};
 		5CAA0A48221BE28400BDE83B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2F11509E4D9B2758BC68603 /* Pods-FineDust_Copy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -350,6 +452,7 @@
 		};
 		5CAA0A49221BE28400BDE83B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B46C5AA91C64E7EF4214841 /* Pods-FineDust_Copy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

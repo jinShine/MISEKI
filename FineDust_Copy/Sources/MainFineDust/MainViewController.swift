@@ -42,6 +42,12 @@ final class MainViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         setupUI()
         
+        let dd = FineDustService()
+        dd.fetchFineDustInfo { response in
+            guard let dd = response.value, let fir = dd.first else { return }
+            print("ERORORORO", fir.list)
+        }
+        
     }
     
     
