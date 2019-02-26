@@ -9,6 +9,6 @@
 import Foundation
 import Alamofire
 
-protocol FindDustServiceType {
+protocol FineDustServiceType {
     func fetchFineDustInfo(completion: @escaping (Result<MainFineDust>) -> ())
 }

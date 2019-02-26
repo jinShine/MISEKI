@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0104E12225950200CDA230 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0104E02225950200CDA230 /* CommonExtension.swift */; };
 		5CAA0A39221BE28300BDE83B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A38221BE28300BDE83B /* AppDelegate.swift */; };
 		5CAA0A3E221BE28300BDE83B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA0A3C221BE28300BDE83B /* Main.storyboard */; };
 		5CAA0A40221BE28400BDE83B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA0A3F221BE28400BDE83B /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FineDust_Copy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B46C5AA91C64E7EF4214841 /* Pods-FineDust_Copy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FineDust_Copy.release.xcconfig"; path = "Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy.release.xcconfig"; sourceTree = "<group>"; };
+		5C0104E02225950200CDA230 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
 		5CAA0A35221BE28300BDE83B /* FineDust_Copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FineDust_Copy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAA0A38221BE28300BDE83B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CAA0A3D221BE28300BDE83B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				5CAA0A52221BE8CF00BDE83B /* UIView+LayoutAnchor.swift */,
+				5C0104E02225950200CDA230 /* CommonExtension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				5CAA0A6A2223901600BDE83B /* MainFineDust.swift in Sources */,
 				5CAA0A53221BE8CF00BDE83B /* UIView+LayoutAnchor.swift in Sources */,
 				5CAA0A4B221BE2AD00BDE83B /* MainViewController.swift in Sources */,
+				5C0104E12225950200CDA230 /* CommonExtension.swift in Sources */,
 				5CAA0A39221BE28300BDE83B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

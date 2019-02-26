@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-struct FineDustService: FindDustServiceType {
+struct FineDustService: FineDustServiceType {
 
     func fetchFineDustInfo(completion: @escaping (Result<MainFineDust>) -> ()) {
             Alamofire.request(Router.fetchMainFineDust(sidoName: "인천"))
@@ -22,11 +22,10 @@ struct FineDustService: FindDustServiceType {
                         print("Fetch Dust :", result)
                         completion(Result.success(result))
                     } catch {
-//                        print("dddd",Router.fetchMainFineDust
-                        print("Catch")
+                        print("Decodable Error")
                     }
                 case.failure(let error):
-                    print("ERRRRR",error)
+                    completion(Result.failure(error))
                 }
                 
         }

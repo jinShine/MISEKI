@@ -54,7 +54,7 @@ extension Router {
         case .fetchMainFineDust(let sidoName):
             return [
                 "serviceKey": Router.servieceKey,
-                "numOfRows":10,
+                "numOfRows":1,
                 "pageNo":1,
                 "sidoName":sidoName,
                 "ver":1.3,
@@ -75,6 +75,8 @@ extension Router: URLRequestConvertible {
         case .fetchMainFineDust:
             urlRequest = try URLEncoding.default.encode(urlRequest, with: self.parameters)
         }
+        
+        print(urlRequest)
         
         return urlRequest
     }

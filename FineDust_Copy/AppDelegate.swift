@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupKeyWindow() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let mainVC = MainViewController()
+        let mainVC = MainViewController(fineDustService: FineDustService()) // Discuss
         window?.rootViewController = UINavigationController(rootViewController: mainVC)
         window?.makeKeyAndVisible()
     }

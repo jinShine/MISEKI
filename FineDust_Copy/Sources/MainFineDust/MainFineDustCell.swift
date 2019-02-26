@@ -18,6 +18,7 @@ class MainFineDustCell: UITableViewCell {
         static let dustStateLabelHeight: CGFloat        = 450
         static let stateImageSize: CGFloat              = 10
         static let detailInfoStackViewHeight: CGFloat   = 80
+        static let detailFont: UIFont = UIFont.systemFont(ofSize: 15)
     }
     
     //MARK:- UI Properties
@@ -87,6 +88,7 @@ class MainFineDustCell: UITableViewCell {
         let label = UILabel()
         label.text = "미세먼지"
         label.textColor = .white
+        label.font = UI.detailFont
         return label
     }()
     
@@ -95,6 +97,7 @@ class MainFineDustCell: UITableViewCell {
         label.text = "0"
         label.textColor = .white
         label.textAlignment = .right
+        label.font = UI.detailFont
         return label
     }()
     
@@ -114,6 +117,7 @@ class MainFineDustCell: UITableViewCell {
         let label = UILabel()
         label.text = "초미세먼지"
         label.textColor = .white
+        label.font = UI.detailFont
         return label
     }()
     
@@ -122,6 +126,7 @@ class MainFineDustCell: UITableViewCell {
         label.text = "0"
         label.textColor = .white
         label.textAlignment = .right
+        label.font = UI.detailFont
         return label
     }()
     
@@ -141,6 +146,7 @@ class MainFineDustCell: UITableViewCell {
         let label = UILabel()
         label.text = "이산화질소"
         label.textColor = .white
+        label.font = UI.detailFont
         return label
     }()
     
@@ -149,6 +155,7 @@ class MainFineDustCell: UITableViewCell {
         label.text = "0"
         label.textColor = .white
         label.textAlignment = .right
+        label.font = UI.detailFont
         return label
     }()
     
@@ -168,6 +175,7 @@ class MainFineDustCell: UITableViewCell {
         let label = UILabel()
         label.text = "오존"
         label.textColor = .white
+        label.font = UI.detailFont
         return label
     }()
     
@@ -176,6 +184,7 @@ class MainFineDustCell: UITableViewCell {
         label.text = "0"
         label.textColor = .white
         label.textAlignment = .right
+        label.font = UI.detailFont
         return label
     }()
     
@@ -195,6 +204,7 @@ class MainFineDustCell: UITableViewCell {
         let label = UILabel()
         label.text = "일산화탄소"
         label.textColor = .white
+        label.font = UI.detailFont
         return label
     }()
     
@@ -203,6 +213,7 @@ class MainFineDustCell: UITableViewCell {
         label.text = "0"
         label.textColor = .white
         label.textAlignment = .right
+        label.font = UI.detailFont
         return label
     }()
     
@@ -222,6 +233,7 @@ class MainFineDustCell: UITableViewCell {
         let label = UILabel()
         label.text = "아황산가스"
         label.textColor = .white
+        label.font = UI.detailFont
         return label
     }()
     
@@ -230,6 +242,7 @@ class MainFineDustCell: UITableViewCell {
         label.text = "0"
         label.textColor = .white
         label.textAlignment = .right
+        label.font = UI.detailFont
         return label
     }()
     
@@ -404,7 +417,7 @@ class MainFineDustCell: UITableViewCell {
         fineDustStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             fineDustStateTitle.centerYAnchor.constraint(equalTo: fineDustContainer.centerYAnchor),
-            fineDustStateTitle.leadingAnchor.constraint(equalTo: fineDustStateImage.trailingAnchor, constant: 4)
+            fineDustStateTitle.leadingAnchor.constraint(equalTo: fineDustStateImage.trailingAnchor, constant: 6)
             ])
 
         fineDustStateValue.translatesAutoresizingMaskIntoConstraints = false
@@ -428,7 +441,7 @@ class MainFineDustCell: UITableViewCell {
         ultrafineDustStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             ultrafineDustStateTitle.centerYAnchor.constraint(equalTo: ultrafineDustContainer.centerYAnchor),
-            ultrafineDustStateTitle.leadingAnchor.constraint(equalTo: ultrafineDustStateImage.trailingAnchor, constant: 4)
+            ultrafineDustStateTitle.leadingAnchor.constraint(equalTo: ultrafineDustStateImage.trailingAnchor, constant: 6)
             ])
 
         ultrafineDustStateValue.translatesAutoresizingMaskIntoConstraints = false
@@ -452,7 +465,7 @@ class MainFineDustCell: UITableViewCell {
         nitrogenDioxideStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nitrogenDioxideStateTitle.centerYAnchor.constraint(equalTo: nitrogenDioxideContainer.centerYAnchor),
-            nitrogenDioxideStateTitle.leadingAnchor.constraint(equalTo: nitrogenDioxideStateImage.trailingAnchor, constant: 4)
+            nitrogenDioxideStateTitle.leadingAnchor.constraint(equalTo: nitrogenDioxideStateImage.trailingAnchor, constant: 6)
             ])
 
         nitrogenDioxideStateValue.translatesAutoresizingMaskIntoConstraints = false
@@ -475,7 +488,7 @@ class MainFineDustCell: UITableViewCell {
         ozoneStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             ozoneStateTitle.centerYAnchor.constraint(equalTo: ozoneContainer.centerYAnchor),
-            ozoneStateTitle.leadingAnchor.constraint(equalTo: ozoneStateImage.trailingAnchor, constant: 4)
+            ozoneStateTitle.leadingAnchor.constraint(equalTo: ozoneStateImage.trailingAnchor, constant: 6)
             ])
 
         ozoneStateValue.translatesAutoresizingMaskIntoConstraints = false
@@ -499,7 +512,7 @@ class MainFineDustCell: UITableViewCell {
         carbonMonoxideStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             carbonMonoxideStateTitle.centerYAnchor.constraint(equalTo: carbonMonoxideContainer.centerYAnchor),
-            carbonMonoxideStateTitle.leadingAnchor.constraint(equalTo: carbonMonoxideStateImage.trailingAnchor, constant: 4)
+            carbonMonoxideStateTitle.leadingAnchor.constraint(equalTo: carbonMonoxideStateImage.trailingAnchor, constant: 6)
             ])
 
         carbonMonoxideStateValue.translatesAutoresizingMaskIntoConstraints = false
@@ -523,7 +536,7 @@ class MainFineDustCell: UITableViewCell {
         sulfurDioxideStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             sulfurDioxideStateTitle.centerYAnchor.constraint(equalTo: sulfurDioxideContainer.centerYAnchor),
-            sulfurDioxideStateTitle.leadingAnchor.constraint(equalTo: sulfurDioxideStateImage.trailingAnchor, constant: 4)
+            sulfurDioxideStateTitle.leadingAnchor.constraint(equalTo: sulfurDioxideStateImage.trailingAnchor, constant: 6)
             ])
 
         sulfurDioxideStateValue.translatesAutoresizingMaskIntoConstraints = false
@@ -608,4 +621,26 @@ class MainFineDustCell: UITableViewCell {
         
     }
     
+    func configureWith(data: MainFineDust) {
+        guard let data = data.list.first else { return }
+
+        // Main Status
+        dustStateValueLabel.text = data.pm10Grade.convertValueToStatus()
+
+        // Detail Value
+        fineDustStateValue.text = data.pm10Value
+        ultrafineDustStateValue.text = data.pm25Value
+        nitrogenDioxideStateValue.text = data.no2Value
+        ozoneStateValue.text = data.o3Value
+        carbonMonoxideStateValue.text = data.coValue
+        sulfurDioxideStateValue.text = data.so2Value
+
+        // Detail Color
+        fineDustStateImage.backgroundColor = data.pm10Grade.convertValueToColor()
+        ultrafineDustStateImage.backgroundColor = data.pm25Grade.convertValueToColor()
+        nitrogenDioxideStateImage.backgroundColor = data.no2Grade.convertValueToColor()
+        ozoneStateImage.backgroundColor = data.o3Grade.convertValueToColor()
+        carbonMonoxideStateImage.backgroundColor = data.coGrade.convertValueToColor()
+        sulfurDioxideStateImage.backgroundColor = data.so2Grade.convertValueToColor()
+    }
 }
