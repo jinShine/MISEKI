@@ -25,6 +25,8 @@ final class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorColor = .clear
         tableView.backgroundColor = UIColor.black
+        tableView.allowsSelection = false
+        tableView.tableFooterView = UIView()
         tableView.register(MainFineDustCell.self, forCellReuseIdentifier: String(describing: MainFineDustCell.self))
         return tableView
     }()
@@ -45,7 +47,7 @@ final class MainViewController: UIViewController {
         let dd = FineDustService()
         dd.fetchFineDustInfo { response in
             guard let dd = response.value, let fir = dd.first else { return }
-            print("ERORORORO", fir.list)
+//            print("ERORORORO", fir.list)
         }
         
     }
@@ -87,8 +89,6 @@ extension MainViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
 
 extension MainViewController: UITableViewDelegate {

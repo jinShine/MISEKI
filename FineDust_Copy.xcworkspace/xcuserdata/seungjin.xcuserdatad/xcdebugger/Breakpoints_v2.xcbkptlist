@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FineDust_Copy/Sources/Service/FineDustService.swift"
-            timestampString = "572793219.50248"
+            timestampString = "572867755.010957"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "fetchFineDustInfo(completion:)"
             landmarkType = "7">
          </BreakpointContent>

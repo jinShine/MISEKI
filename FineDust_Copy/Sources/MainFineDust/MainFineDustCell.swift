@@ -206,7 +206,7 @@ class MainFineDustCell: UITableViewCell {
         return label
     }()
     
-    //이황산가스
+    //아황산가스
     let sulfurDioxideContainer: UIView = {
         let view = UIView()
         return view
@@ -220,7 +220,7 @@ class MainFineDustCell: UITableViewCell {
     
     let sulfurDioxideStateTitle: UILabel = {
         let label = UILabel()
-        label.text = "이황산가스"
+        label.text = "아황산가스"
         label.textColor = .white
         return label
     }()
