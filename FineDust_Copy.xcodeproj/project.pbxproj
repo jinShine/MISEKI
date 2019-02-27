@@ -19,6 +19,8 @@
 		5CAA0A642223792800BDE83B /* FineDustServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A632223792800BDE83B /* FineDustServiceType.swift */; };
 		5CAA0A6722237A8E00BDE83B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A6622237A8E00BDE83B /* Router.swift */; };
 		5CAA0A6A2223901600BDE83B /* MainFineDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A692223901600BDE83B /* MainFineDust.swift */; };
+		5CAA0A6D22261DA100BDE83B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A6C22261DA100BDE83B /* LocationManager.swift */; };
+		5CAA0A6F222663AA00BDE83B /* PlaceMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A6E222663AA00BDE83B /* PlaceMark.swift */; };
 		6FC448C8DF0E58F2C4CF9A89 /* Pods_FineDust_Copy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		5CAA0A632223792800BDE83B /* FineDustServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustServiceType.swift; sourceTree = "<group>"; };
 		5CAA0A6622237A8E00BDE83B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		5CAA0A692223901600BDE83B /* MainFineDust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFineDust.swift; sourceTree = "<group>"; };
+		5CAA0A6C22261DA100BDE83B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		5CAA0A6E222663AA00BDE83B /* PlaceMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMark.swift; sourceTree = "<group>"; };
 		F2F11509E4D9B2758BC68603 /* Pods-FineDust_Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FineDust_Copy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,9 +90,10 @@
 			isa = PBXGroup;
 			children = (
 				5CAA0A6522237A7500BDE83B /* Router */,
+				5CAA0A6B22261D7F00BDE83B /* Manager */,
 				5CAA0A6822238FDC00BDE83B /* Model */,
 				5CAA0A54221D725700BDE83B /* Service */,
-				5CAA0A4E221BE3DE00BDE83B /* MainFineDust */,
+				5CAA0A70222677FE00BDE83B /* Content */,
 				5CAA0A51221BE6E600BDE83B /* Utility */,
 			);
 			path = Sources;
@@ -144,8 +149,25 @@
 			isa = PBXGroup;
 			children = (
 				5CAA0A692223901600BDE83B /* MainFineDust.swift */,
+				5CAA0A6E222663AA00BDE83B /* PlaceMark.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5CAA0A6B22261D7F00BDE83B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5CAA0A6C22261DA100BDE83B /* LocationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		5CAA0A70222677FE00BDE83B /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				5CAA0A4E221BE3DE00BDE83B /* MainFineDust */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 		AD49F851CA92EB15F7D5A083 /* Pods */ = {
@@ -287,6 +309,8 @@
 			files = (
 				5CAA0A50221BE5CA00BDE83B /* MainFineDustCell.swift in Sources */,
 				5CAA0A642223792800BDE83B /* FineDustServiceType.swift in Sources */,
+				5CAA0A6F222663AA00BDE83B /* PlaceMark.swift in Sources */,
+				5CAA0A6D22261DA100BDE83B /* LocationManager.swift in Sources */,
 				5CAA0A56221D727300BDE83B /* FineDustService.swift in Sources */,
 				5CAA0A6722237A8E00BDE83B /* Router.swift in Sources */,
 				5CAA0A6A2223901600BDE83B /* MainFineDust.swift in Sources */,

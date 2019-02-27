@@ -315,7 +315,11 @@ class MainFineDustCell: UITableViewCell {
         return label
     }()
 
-
+    let updateTimeLabel: UILabel = {
+        let label = UILabel()
+        let attributeString = NSMutableAttributedString(string: "업데이트")
+        return label
+    }()
     
     
 
@@ -621,11 +625,20 @@ class MainFineDustCell: UITableViewCell {
         
     }
     
-    func configureWith(data: MainFineDust) {
+    func configureWith(data: MainFineDust, placeMark: PlaceMark) {
         guard let data = data.list.first else { return }
-
+        
+        guard let administrativeArea = placeMark.administrativeArea,
+            let locality = placeMark.locality,
+            let subLocality = placeMark.subLocality else { return }
+        
+        
+        // Current Location
+        let currentLocation = "\(administrativeArea) \(locality) \(subLocality)"
+        currentLocationButton.setTitle(currentLocation, for: UIControl.State.normal)
+        
         // Main Status
-        dustStateValueLabel.text = data.pm10Grade.convertValueToStatus()
+        dustStateValueLabel.text = data.pm10Grade.convertValueToStatus
 
         // Detail Value
         fineDustStateValue.text = data.pm10Value
@@ -636,11 +649,11 @@ class MainFineDustCell: UITableViewCell {
         sulfurDioxideStateValue.text = data.so2Value
 
         // Detail Color
-        fineDustStateImage.backgroundColor = data.pm10Grade.convertValueToColor()
-        ultrafineDustStateImage.backgroundColor = data.pm25Grade.convertValueToColor()
-        nitrogenDioxideStateImage.backgroundColor = data.no2Grade.convertValueToColor()
-        ozoneStateImage.backgroundColor = data.o3Grade.convertValueToColor()
-        carbonMonoxideStateImage.backgroundColor = data.coGrade.convertValueToColor()
-        sulfurDioxideStateImage.backgroundColor = data.so2Grade.convertValueToColor()
+        fineDustStateImage.backgroundColor = data.pm10Grade.convertValueToColor
+        ultrafineDustStateImage.backgroundColor = data.pm25Grade.convertValueToColor
+        nitrogenDioxideStateImage.backgroundColor = data.no2Grade.convertValueToColor
+        ozoneStateImage.backgroundColor = data.o3Grade.convertValueToColor
+        carbonMonoxideStateImage.backgroundColor = data.coGrade.convertValueToColor
+        sulfurDioxideStateImage.backgroundColor = data.so2Grade.convertValueToColor
     }
 }

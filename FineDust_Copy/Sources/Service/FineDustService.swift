@@ -11,8 +11,8 @@ import Alamofire
 
 struct FineDustService: FineDustServiceType {
 
-    func fetchFineDustInfo(completion: @escaping (Result<MainFineDust>) -> ()) {
-            Alamofire.request(Router.fetchMainFineDust(sidoName: "인천"))
+    func fetchFineDustInfo(sidoName: String, completion: @escaping (Result<MainFineDust>) -> ()) {
+            Alamofire.request(Router.fetchMainFineDust(sidoName: sidoName))
             .validate(statusCode: 200..<400)
             .responseData { response in
                 switch response.result {
@@ -30,10 +30,6 @@ struct FineDustService: FineDustServiceType {
                 
         }
     }
-
-    
-    
-    //MARK:- Properties
 }
 
 

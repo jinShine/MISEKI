@@ -54,7 +54,7 @@ extension Router {
         case .fetchMainFineDust(let sidoName):
             return [
                 "serviceKey": Router.servieceKey,
-                "numOfRows":1,
+                "numOfRows":999,
                 "pageNo":1,
                 "sidoName":sidoName,
                 "ver":1.3,

@@ -15,15 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         setupKeyWindow()
-        
         return true
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        LocationManager.shared.checkAuthorizationStatus()
     }
     
     private func setupKeyWindow() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let mainVC = MainViewController(fineDustService: FineDustService()) // Discuss
+        let mainVC = MainViewController(fineDustService: FineDustService(), placeMark: PlaceMark()) // Discuss
         window?.rootViewController = UINavigationController(rootViewController: mainVC)
         window?.makeKeyAndVisible()
     }
