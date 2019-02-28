@@ -43,8 +43,7 @@ final class MainViewController: UIViewController {
     
     
     //MARK:- Initialize
-    // Discuss
-    // Dependency!!!!!!!!!!!!!!!!!!!!!!
+    
     init(fineDustService: FineDustService, placeMark: PlaceMark) {
         super.init(nibName: nil, bundle: nil)
         self.fineDustService = fineDustService
@@ -65,6 +64,36 @@ final class MainViewController: UIViewController {
     //MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let flakeEmitterCell = CAEmitterCell()
+        flakeEmitterCell.contents = UIImage(named: "Terms")?.cgImage
+        flakeEmitterCell.scale = 0.06
+        flakeEmitterCell.scaleRange = 0.3
+        flakeEmitterCell.emissionRange = .pi
+        flakeEmitterCell.lifetime = 20.0
+        flakeEmitterCell.birthRate = 40
+        flakeEmitterCell.velocity = -30
+        flakeEmitterCell.velocityRange = -20
+        flakeEmitterCell.yAcceleration = 30
+        flakeEmitterCell.xAcceleration = 5
+        flakeEmitterCell.spin = -0.5
+        flakeEmitterCell.spinRange = 1.0
+        
+        let snowEmitterLayer = CAEmitterLayer()
+        snowEmitterLayer.emitterPosition = CGPoint(x: view.bounds.width / 2.0, y: -50)
+        snowEmitterLayer.emitterSize = CGSize(width: view.bounds.width, height: 0)
+        snowEmitterLayer.emitterShape = CAEmitterLayerEmitterShape.line
+        snowEmitterLayer.beginTime = CACurrentMediaTime()
+        snowEmitterLayer.timeOffset = 10
+        snowEmitterLayer.emitterCells = [flakeEmitterCell]
+        view.layer.addSublayer(snowEmitterLayer)
+        
+        
+        
+        
+        
+        
+        
 
         setupUI()
         guard locationManager?.isUseLocationService() ?? false else {
@@ -149,6 +178,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MainFineDustCell.self), for: indexPath) as? MainFineDustCell else { return UITableViewCell() }
         
+        cell.delegate = self
         cell.configureWith(data: mainFineDusts, placeMark: placeMark ?? PlaceMark())
         
         return cell
@@ -159,4 +189,15 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 830
     }
+}
+
+extension MainViewController: MainFineDustCellDelegate {
+    
+    func mainFineDustCell(_ mainFineDustCell: MainFineDustCell, didTapLocationButton: UIButton) {
+        
+        
+        self.navigationController?.pushViewController(SearchAddressViewController(), animated: true)
+        
+    }
+    
 }

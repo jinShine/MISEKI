@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MainFineDustCellDelegate: class {
+    func mainFineDustCell(_ mainFineDustCell: MainFineDustCell, didTapLocationButton: UIButton)
+}
+
 class MainFineDustCell: UITableViewCell {
     
     struct UI {
@@ -48,22 +52,23 @@ class MainFineDustCell: UITableViewCell {
         return button
     }()
     
-    let currentLocationButton: UIButton = {
+    lazy var currentLocationButton: UIButton = {
         let button = UIButton()
         button.contentHorizontalAlignment = .left
-        button.setTitle("서울 서초구 서초동", for: UIControl.State.normal)
+        button.setTitle(" - ", for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setImage(UIImage(named: "Location"), for: UIControl.State.normal)
         button.semanticContentAttribute = .forceLeftToRight // Discuss
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: UI.basicMargin, left: UI.basicMargin, bottom: UI.basicMargin, right: UI.basicMargin)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: UI.basicMargin, bottom: 0, right: 0)
+        button.addTarget(self, action: #selector(didTapLocation(_:)), for: UIControl.Event.touchUpInside)
         return button
     }()
     
     let dustStateValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "보통"
+        label.text = " - "
         label.textAlignment = .center
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: UI.dustStatusFontValue, weight: UIFont.Weight.bold)
@@ -94,7 +99,7 @@ class MainFineDustCell: UITableViewCell {
     
     let fineDustStateValue: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = " - "
         label.textColor = .white
         label.textAlignment = .right
         label.font = UI.detailFont
@@ -123,7 +128,7 @@ class MainFineDustCell: UITableViewCell {
     
     let ultrafineDustStateValue: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = " - "
         label.textColor = .white
         label.textAlignment = .right
         label.font = UI.detailFont
@@ -152,7 +157,7 @@ class MainFineDustCell: UITableViewCell {
     
     let nitrogenDioxideStateValue: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = " - "
         label.textColor = .white
         label.textAlignment = .right
         label.font = UI.detailFont
@@ -181,7 +186,7 @@ class MainFineDustCell: UITableViewCell {
     
     let ozoneStateValue: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = " - "
         label.textColor = .white
         label.textAlignment = .right
         label.font = UI.detailFont
@@ -210,7 +215,7 @@ class MainFineDustCell: UITableViewCell {
     
     let carbonMonoxideStateValue: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = " - "
         label.textColor = .white
         label.textAlignment = .right
         label.font = UI.detailFont
@@ -239,7 +244,7 @@ class MainFineDustCell: UITableViewCell {
     
     let sulfurDioxideStateValue: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = " - "
         label.textColor = .white
         label.textAlignment = .right
         label.font = UI.detailFont
@@ -320,6 +325,11 @@ class MainFineDustCell: UITableViewCell {
         let attributeString = NSMutableAttributedString(string: "업데이트")
         return label
     }()
+    
+    
+    //MARK:- Properties
+    
+    weak var delegate: MainFineDustCellDelegate?
     
     
 
@@ -656,4 +666,10 @@ class MainFineDustCell: UITableViewCell {
         carbonMonoxideStateImage.backgroundColor = data.coGrade.convertValueToColor
         sulfurDioxideStateImage.backgroundColor = data.so2Grade.convertValueToColor
     }
+    
+    @objc private func didTapLocation(_ sender: UIButton) {
+        print(123)
+        delegate?.mainFineDustCell(self, didTapLocationButton: sender)
+    }
 }
+

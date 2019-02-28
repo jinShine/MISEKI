@@ -21,6 +21,7 @@
 		5CAA0A6A2223901600BDE83B /* MainFineDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A692223901600BDE83B /* MainFineDust.swift */; };
 		5CAA0A6D22261DA100BDE83B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A6C22261DA100BDE83B /* LocationManager.swift */; };
 		5CAA0A6F222663AA00BDE83B /* PlaceMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A6E222663AA00BDE83B /* PlaceMark.swift */; };
+		5CAA0A752227E69F00BDE83B /* SearchAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A742227E69F00BDE83B /* SearchAddressViewController.swift */; };
 		6FC448C8DF0E58F2C4CF9A89 /* Pods_FineDust_Copy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		5CAA0A692223901600BDE83B /* MainFineDust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFineDust.swift; sourceTree = "<group>"; };
 		5CAA0A6C22261DA100BDE83B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5CAA0A6E222663AA00BDE83B /* PlaceMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMark.swift; sourceTree = "<group>"; };
+		5CAA0A742227E69F00BDE83B /* SearchAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressViewController.swift; sourceTree = "<group>"; };
 		F2F11509E4D9B2758BC68603 /* Pods-FineDust_Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FineDust_Copy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,9 +167,18 @@
 		5CAA0A70222677FE00BDE83B /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				5CAA0A712227E63C00BDE83B /* SearchAddress */,
 				5CAA0A4E221BE3DE00BDE83B /* MainFineDust */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		5CAA0A712227E63C00BDE83B /* SearchAddress */ = {
+			isa = PBXGroup;
+			children = (
+				5CAA0A742227E69F00BDE83B /* SearchAddressViewController.swift */,
+			);
+			path = SearchAddress;
 			sourceTree = "<group>";
 		};
 		AD49F851CA92EB15F7D5A083 /* Pods */ = {
@@ -312,6 +323,7 @@
 				5CAA0A6F222663AA00BDE83B /* PlaceMark.swift in Sources */,
 				5CAA0A6D22261DA100BDE83B /* LocationManager.swift in Sources */,
 				5CAA0A56221D727300BDE83B /* FineDustService.swift in Sources */,
+				5CAA0A752227E69F00BDE83B /* SearchAddressViewController.swift in Sources */,
 				5CAA0A6722237A8E00BDE83B /* Router.swift in Sources */,
 				5CAA0A6A2223901600BDE83B /* MainFineDust.swift in Sources */,
 				5CAA0A53221BE8CF00BDE83B /* UIView+LayoutAnchor.swift in Sources */,
