@@ -25,7 +25,7 @@ final class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .clear
-        tableView.backgroundColor = UIColor.black
+        tableView.backgroundColor = .clear
         tableView.allowsSelection = false
         tableView.tableFooterView = UIView()
         tableView.register(MainFineDustCell.self, forCellReuseIdentifier: String(describing: MainFineDustCell.self))
@@ -39,7 +39,7 @@ final class MainViewController: UIViewController {
     private var placeMark: PlaceMark?
     private var locationManager: LocationManager?
     
-    private var mainFineDusts = MainFineDust()
+    private var mainFineDusts = FineDustModel()
     
     
     //MARK:- Initialize
@@ -93,7 +93,6 @@ final class MainViewController: UIViewController {
         
         
         
-        
 
         setupUI()
         guard locationManager?.isUseLocationService() ?? false else {
@@ -104,7 +103,7 @@ final class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 guard let city = placeMark.administrativeArea else { return }
                 self?.placeMark = PlaceMark(placeMark: placeMark)
-                self?.fetchFineDust(city: city.convertCityShortening)
+                self?.requestFineDust(city: city.convertCityShortening)
             }
         }
     }
@@ -138,8 +137,8 @@ final class MainViewController: UIViewController {
     
     //MARK:- Action Handle
     
-    private func fetchFineDust(city: String) {
-        fineDustService?.fetchFineDustInfo(sidoName: city) { [weak self] response in
+    private func requestFineDust(city: String) {
+        fineDustService?.requestFineDustInfo(sido: city) { [weak self] response in
             guard let self = self else { return }
                 switch response {
                 case .success(let fineDustInfo):
@@ -196,7 +195,8 @@ extension MainViewController: MainFineDustCellDelegate {
     func mainFineDustCell(_ mainFineDustCell: MainFineDustCell, didTapLocationButton: UIButton) {
         
         
-        self.navigationController?.pushViewController(SearchAddressViewController(), animated: true)
+//        self.navigationController?.pushViewController(SearchAddressViewController(), animated: true)
+        present(SearchAddressViewController(addressService: AddressService()), animated: true, completion: nil)
         
     }
     

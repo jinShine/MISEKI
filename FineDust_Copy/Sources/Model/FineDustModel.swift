@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MainFineDust: Decodable {
+struct FineDustModel: Decodable {
     let list: [List]
     let totalCount: Int
     

@@ -29,7 +29,7 @@ class MainFineDustCell: UITableViewCell {
     
     let naviInfoContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -74,8 +74,6 @@ class MainFineDustCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: UI.dustStatusFontValue, weight: UIFont.Weight.bold)
         return label
     }()
-    
-    
     
     //미세먼지
     let fineDustContainer: UIView = {
@@ -635,7 +633,7 @@ class MainFineDustCell: UITableViewCell {
         
     }
     
-    func configureWith(data: MainFineDust, placeMark: PlaceMark) {
+    func configureWith(data: FineDustModel, placeMark: PlaceMark) {
         guard let data = data.list.first else { return }
         
         guard let administrativeArea = placeMark.administrativeArea,
@@ -668,7 +666,6 @@ class MainFineDustCell: UITableViewCell {
     }
     
     @objc private func didTapLocation(_ sender: UIButton) {
-        print(123)
         delegate?.mainFineDustCell(self, didTapLocationButton: sender)
     }
 }

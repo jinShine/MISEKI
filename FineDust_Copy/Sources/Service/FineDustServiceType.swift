@@ -10,5 +10,5 @@ import Foundation
 import Alamofire
 
 protocol FineDustServiceType {
-    func fetchFineDustInfo(sidoName: String, completion: @escaping (Result<MainFineDust>) -> ())
+    func requestFineDustInfo(sido: String, completion: @escaping (Result<FineDustModel>) -> ())
 }

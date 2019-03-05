@@ -18,10 +18,15 @@
 		5CAA0A56221D727300BDE83B /* FineDustService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A55221D727300BDE83B /* FineDustService.swift */; };
 		5CAA0A642223792800BDE83B /* FineDustServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A632223792800BDE83B /* FineDustServiceType.swift */; };
 		5CAA0A6722237A8E00BDE83B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A6622237A8E00BDE83B /* Router.swift */; };
-		5CAA0A6A2223901600BDE83B /* MainFineDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A692223901600BDE83B /* MainFineDust.swift */; };
+		5CAA0A6A2223901600BDE83B /* FineDustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A692223901600BDE83B /* FineDustModel.swift */; };
 		5CAA0A6D22261DA100BDE83B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A6C22261DA100BDE83B /* LocationManager.swift */; };
 		5CAA0A6F222663AA00BDE83B /* PlaceMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A6E222663AA00BDE83B /* PlaceMark.swift */; };
 		5CAA0A752227E69F00BDE83B /* SearchAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A742227E69F00BDE83B /* SearchAddressViewController.swift */; };
+		5CAA0A78222E116900BDE83B /* CurrentLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A77222E116900BDE83B /* CurrentLocationCell.swift */; };
+		5CAA0A7A222E52A800BDE83B /* AddressServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A79222E52A800BDE83B /* AddressServiceType.swift */; };
+		5CAA0A7C222E52E300BDE83B /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A7B222E52E300BDE83B /* AddressService.swift */; };
+		5CAA0A7E222E577700BDE83B /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A7D222E577700BDE83B /* AddressModel.swift */; };
+		5CAA0A80222E797700BDE83B /* SearchedAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A7F222E797700BDE83B /* SearchedAddressCell.swift */; };
 		6FC448C8DF0E58F2C4CF9A89 /* Pods_FineDust_Copy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,10 +46,15 @@
 		5CAA0A55221D727300BDE83B /* FineDustService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustService.swift; sourceTree = "<group>"; };
 		5CAA0A632223792800BDE83B /* FineDustServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustServiceType.swift; sourceTree = "<group>"; };
 		5CAA0A6622237A8E00BDE83B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		5CAA0A692223901600BDE83B /* MainFineDust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFineDust.swift; sourceTree = "<group>"; };
+		5CAA0A692223901600BDE83B /* FineDustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustModel.swift; sourceTree = "<group>"; };
 		5CAA0A6C22261DA100BDE83B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5CAA0A6E222663AA00BDE83B /* PlaceMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMark.swift; sourceTree = "<group>"; };
 		5CAA0A742227E69F00BDE83B /* SearchAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressViewController.swift; sourceTree = "<group>"; };
+		5CAA0A77222E116900BDE83B /* CurrentLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationCell.swift; sourceTree = "<group>"; };
+		5CAA0A79222E52A800BDE83B /* AddressServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressServiceType.swift; sourceTree = "<group>"; };
+		5CAA0A7B222E52E300BDE83B /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; };
+		5CAA0A7D222E577700BDE83B /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		5CAA0A7F222E797700BDE83B /* SearchedAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedAddressCell.swift; sourceTree = "<group>"; };
 		F2F11509E4D9B2758BC68603 /* Pods-FineDust_Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FineDust_Copy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +145,8 @@
 			children = (
 				5CAA0A632223792800BDE83B /* FineDustServiceType.swift */,
 				5CAA0A55221D727300BDE83B /* FineDustService.swift */,
+				5CAA0A79222E52A800BDE83B /* AddressServiceType.swift */,
+				5CAA0A7B222E52E300BDE83B /* AddressService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -150,8 +162,9 @@
 		5CAA0A6822238FDC00BDE83B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5CAA0A692223901600BDE83B /* MainFineDust.swift */,
+				5CAA0A692223901600BDE83B /* FineDustModel.swift */,
 				5CAA0A6E222663AA00BDE83B /* PlaceMark.swift */,
+				5CAA0A7D222E577700BDE83B /* AddressModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				5CAA0A742227E69F00BDE83B /* SearchAddressViewController.swift */,
+				5CAA0A77222E116900BDE83B /* CurrentLocationCell.swift */,
+				5CAA0A7F222E797700BDE83B /* SearchedAddressCell.swift */,
 			);
 			path = SearchAddress;
 			sourceTree = "<group>";
@@ -318,14 +333,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CAA0A7A222E52A800BDE83B /* AddressServiceType.swift in Sources */,
+				5CAA0A80222E797700BDE83B /* SearchedAddressCell.swift in Sources */,
 				5CAA0A50221BE5CA00BDE83B /* MainFineDustCell.swift in Sources */,
 				5CAA0A642223792800BDE83B /* FineDustServiceType.swift in Sources */,
 				5CAA0A6F222663AA00BDE83B /* PlaceMark.swift in Sources */,
+				5CAA0A7E222E577700BDE83B /* AddressModel.swift in Sources */,
+				5CAA0A78222E116900BDE83B /* CurrentLocationCell.swift in Sources */,
 				5CAA0A6D22261DA100BDE83B /* LocationManager.swift in Sources */,
 				5CAA0A56221D727300BDE83B /* FineDustService.swift in Sources */,
+				5CAA0A7C222E52E300BDE83B /* AddressService.swift in Sources */,
 				5CAA0A752227E69F00BDE83B /* SearchAddressViewController.swift in Sources */,
 				5CAA0A6722237A8E00BDE83B /* Router.swift in Sources */,
-				5CAA0A6A2223901600BDE83B /* MainFineDust.swift in Sources */,
+				5CAA0A6A2223901600BDE83B /* FineDustModel.swift in Sources */,
 				5CAA0A53221BE8CF00BDE83B /* UIView+LayoutAnchor.swift in Sources */,
 				5CAA0A4B221BE2AD00BDE83B /* MainViewController.swift in Sources */,
 				5C0104E12225950200CDA230 /* CommonExtension.swift in Sources */,
