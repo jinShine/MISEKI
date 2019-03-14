@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5C0104E12225950200CDA230 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0104E02225950200CDA230 /* CommonExtension.swift */; };
 		5C66084B223A474800138A73 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C66084A223A474800138A73 /* App.swift */; };
+		5C660854223A659100138A73 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C660853223A659100138A73 /* NotificationCenter.framework */; };
+		5C660857223A659100138A73 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C660856223A659100138A73 /* TodayViewController.swift */; };
+		5C66085A223A659100138A73 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C660858223A659100138A73 /* MainInterface.storyboard */; };
+		5C66085E223A659100138A73 /* FineDustWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5C660852223A659100138A73 /* FineDustWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5CAA0A39221BE28300BDE83B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A38221BE28300BDE83B /* AppDelegate.swift */; };
 		5CAA0A3E221BE28300BDE83B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA0A3C221BE28300BDE83B /* Main.storyboard */; };
 		5CAA0A40221BE28400BDE83B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA0A3F221BE28400BDE83B /* Assets.xcassets */; };
@@ -31,11 +35,41 @@
 		6FC448C8DF0E58F2C4CF9A89 /* Pods_FineDust_Copy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5C66085C223A659100138A73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CAA0A2D221BE28300BDE83B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C660851223A659100138A73;
+			remoteInfo = FineDustWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5C660862223A659100138A73 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5C66085E223A659100138A73 /* FineDustWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FineDust_Copy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B46C5AA91C64E7EF4214841 /* Pods-FineDust_Copy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FineDust_Copy.release.xcconfig"; path = "Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy.release.xcconfig"; sourceTree = "<group>"; };
 		5C0104E02225950200CDA230 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
 		5C66084A223A474800138A73 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		5C660852223A659100138A73 /* FineDustWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FineDustWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C660853223A659100138A73 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		5C660856223A659100138A73 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		5C660859223A659100138A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		5C66085B223A659100138A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C660863223A660D00138A73 /* FineDust_Copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FineDust_Copy.entitlements; sourceTree = "<group>"; };
 		5CAA0A35221BE28300BDE83B /* FineDust_Copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FineDust_Copy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAA0A38221BE28300BDE83B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CAA0A3D221BE28300BDE83B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +95,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5C66084F223A659100138A73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C660854223A659100138A73 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CAA0A32221BE28300BDE83B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,10 +114,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C660855223A659100138A73 /* FineDustWidget */ = {
+			isa = PBXGroup;
+			children = (
+				5C660856223A659100138A73 /* TodayViewController.swift */,
+				5C660858223A659100138A73 /* MainInterface.storyboard */,
+				5C66085B223A659100138A73 /* Info.plist */,
+			);
+			path = FineDustWidget;
+			sourceTree = "<group>";
+		};
 		5CAA0A2C221BE28300BDE83B = {
 			isa = PBXGroup;
 			children = (
 				5CAA0A37221BE28300BDE83B /* FineDust_Copy */,
+				5C660855223A659100138A73 /* FineDustWidget */,
 				5CAA0A36221BE28300BDE83B /* Products */,
 				AD49F851CA92EB15F7D5A083 /* Pods */,
 				D90FA90280CF71FD6087E2EC /* Frameworks */,
@@ -86,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				5CAA0A35221BE28300BDE83B /* FineDust_Copy.app */,
+				5C660852223A659100138A73 /* FineDustWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +147,7 @@
 		5CAA0A37221BE28300BDE83B /* FineDust_Copy */ = {
 			isa = PBXGroup;
 			children = (
+				5C660863223A660D00138A73 /* FineDust_Copy.entitlements */,
 				5CAA0A38221BE28300BDE83B /* AppDelegate.swift */,
 				5CAA0A4C221BE2B000BDE83B /* Sources */,
 				5CAA0A4D221BE2DD00BDE83B /* Resources */,
@@ -212,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */,
+				5C660853223A659100138A73 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,6 +275,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5C660851223A659100138A73 /* FineDustWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C66085F223A659100138A73 /* Build configuration list for PBXNativeTarget "FineDustWidget" */;
+			buildPhases = (
+				5C66084E223A659100138A73 /* Sources */,
+				5C66084F223A659100138A73 /* Frameworks */,
+				5C660850223A659100138A73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FineDustWidget;
+			productName = FineDustWidget;
+			productReference = 5C660852223A659100138A73 /* FineDustWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5CAA0A34221BE28300BDE83B /* FineDust_Copy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CAA0A47221BE28400BDE83B /* Build configuration list for PBXNativeTarget "FineDust_Copy" */;
@@ -228,10 +301,12 @@
 				5CAA0A32221BE28300BDE83B /* Frameworks */,
 				5CAA0A33221BE28300BDE83B /* Resources */,
 				FB4D89C1857AC3721D483F53 /* [CP] Embed Pods Frameworks */,
+				5C660862223A659100138A73 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5C66085D223A659100138A73 /* PBXTargetDependency */,
 			);
 			name = FineDust_Copy;
 			productName = FineDust_Copy;
@@ -248,8 +323,16 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "승진김";
 				TargetAttributes = {
+					5C660851223A659100138A73 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					5CAA0A34221BE28300BDE83B = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -267,11 +350,20 @@
 			projectRoot = "";
 			targets = (
 				5CAA0A34221BE28300BDE83B /* FineDust_Copy */,
+				5C660851223A659100138A73 /* FineDustWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5C660850223A659100138A73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C66085A223A659100138A73 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CAA0A33221BE28300BDE83B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,6 +424,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5C66084E223A659100138A73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C660857223A659100138A73 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CAA0A31221BE28300BDE83B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,7 +459,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5C66085D223A659100138A73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C660851223A659100138A73 /* FineDustWidget */;
+			targetProxy = 5C66085C223A659100138A73 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		5C660858223A659100138A73 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C660859223A659100138A73 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		5CAA0A3C221BE28300BDE83B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -379,6 +495,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5C660860223A659100138A73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNMQE42DQF;
+				INFOPLIST_FILE = FineDustWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jinShine.FineDust-Copy.FineDustWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5C660861223A659100138A73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNMQE42DQF;
+				INFOPLIST_FILE = FineDustWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jinShine.FineDust-Copy.FineDustWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		5CAA0A45221BE28400BDE83B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -499,7 +653,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2F11509E4D9B2758BC68603 /* Pods-FineDust_Copy.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FineDust_Copy/FineDust_Copy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
 				INFOPLIST_FILE = "$(SRCROOT)/FineDust_Copy/Resources/Info.plist";
@@ -518,7 +674,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B46C5AA91C64E7EF4214841 /* Pods-FineDust_Copy.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FineDust_Copy/FineDust_Copy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
 				INFOPLIST_FILE = "$(SRCROOT)/FineDust_Copy/Resources/Info.plist";
@@ -536,6 +694,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5C66085F223A659100138A73 /* Build configuration list for PBXNativeTarget "FineDustWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C660860223A659100138A73 /* Debug */,
+				5C660861223A659100138A73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5CAA0A30221BE28300BDE83B /* Build configuration list for PBXProject "FineDust_Copy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
