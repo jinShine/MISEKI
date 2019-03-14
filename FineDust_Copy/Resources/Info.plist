@@ -48,5 +48,26 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>원활한 서비스를 이용하기 위해 위치서비스가 필요합니다.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SF-Pro-Display-Black</string>
+		<string>SF-Pro-Display-BlackItalic</string>
+		<string>SF-Pro-Display-Bold</string>
+		<string>SF-Pro-Display-BoldItalic</string>
+		<string>SF-Pro-Display-Heavy</string>
+		<string>SF-Pro-Display-HeavyItalic</string>
+		<string>SF-Pro-Display-Light</string>
+		<string>SF-Pro-Display-LightItalic</string>
+		<string>SF-Pro-Display-Medium</string>
+		<string>SF-Pro-Display-MediumItalic</string>
+		<string>SF-Pro-Display-Regular</string>
+		<string>SF-Pro-Display-RegularItalic</string>
+		<string>SF-Pro-Display-Semibold</string>
+		<string>SF-Pro-Display-SemiboldItalic</string>
+		<string>SF-Pro-Display-Thin</string>
+		<string>SF-Pro-Display-ThinItalic</string>
+		<string>SF-Pro-Display-Ultralight</string>
+		<string>SF-Pro-Display-UltralightItalic</string>
+	</array>
 </dict>
 </plist>
