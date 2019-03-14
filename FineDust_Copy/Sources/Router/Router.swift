@@ -23,7 +23,6 @@ extension Router {
     static let fineDustServieceKey: NSString = "SzPfhMrL3JFss%2FoKrJXv0wP3v6WJA2RRJ4yqv23fmdow5QAx7tqO9ZMosASlFeXA9UV1Aqzs%2BMP17Ts25BrfGQ%3D%3D".removingPercentEncoding! as NSString
     static let addressServieceKey: NSString = "U01TX0FVVEgyMDE5MDIyODE2MTE1NTEwODU1MDE=".removingPercentEncoding! as NSString
     
-    
     var baseURL: URL {
         switch self {
         case .searchAddress:

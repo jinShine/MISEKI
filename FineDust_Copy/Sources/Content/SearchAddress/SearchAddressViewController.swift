@@ -35,6 +35,7 @@ final class SearchAddressViewController: UIViewController {
     let naviRightCloseButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "Close"), for: UIControl.State.normal)
+        button.addTarget(self, action: #selector(closeAction), for: UIControl.Event.touchUpInside)
         return button
     }()
     
@@ -65,14 +66,13 @@ final class SearchAddressViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .clear
-        tableView.allowsSelection = false
         tableView.tableFooterView = UIView()
+        tableView.keyboardDismissMode = .interactive
         tableView.register(CurrentLocationCell.self, forCellReuseIdentifier: String(describing: CurrentLocationCell.self))
         tableView.register(SearchedAddressCell.self, forCellReuseIdentifier: String(describing: SearchedAddressCell.self))
         return tableView
     }()
-    
-    
+
     
     
     //MARK:- Properties
@@ -183,15 +183,18 @@ final class SearchAddressViewController: UIViewController {
     }
     
     
-    
-    //MARK:- Action Handle
+}
+
+//MARK:- Action Handle
+
+extension SearchAddressViewController {
     
     @objc func keyboardWillShow(notification: Notification) {
         guard let notiInfo = notification.userInfo else { return }
         guard let keyboardFrame = notiInfo["UIKeyboardFrameEndUserInfoKey"] as? CGRect else { return }
         let keyboardHeight = keyboardFrame.height
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
-
+        
         UIView.animate(withDuration: UI.keyboardShowDuration) {
             self.view.layoutIfNeeded()
         }
@@ -205,7 +208,7 @@ final class SearchAddressViewController: UIViewController {
     }
     
     // 중복 제거
-    private func deduplication(from array: [Juso]) -> [Juso] {
+    private func deduplication(from array: [Juso], with searchText: String) -> [Juso] {
         var set = Set<String>()
         let result = array.filter {
             guard !set.contains($0.emdNm) else { return false }
@@ -221,15 +224,18 @@ final class SearchAddressViewController: UIViewController {
             case .success(let value):
                 guard let self = self else { return }
                 print("requestAddress", value)
-                self.addressArray = self.deduplication(from: value.results.juso)
+                self.addressArray = self.deduplication(from: value.results.juso, with: region)
                 self.tableView.reloadData()
             case .failure(let error):
+                self?.addressArray = []
                 print(error)
             }
         })
     }
     
-
+    @objc private func closeAction() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
 
@@ -261,16 +267,34 @@ extension SearchAddressViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 46
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case Row.currentLocation.rawValue:
+            NotificationCenter.default.post(name: NSNotification.Name.init(App.Constant.updateRegion.rawValue), object: nil, userInfo: nil)
+        default:
+            NotificationCenter.default.post(name: NSNotification.Name.init(App.Constant.updateRegion.rawValue), object: nil, userInfo: [App.Constant.updateRegion.rawValue : self.addressArray[indexPath.row - 1]])
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+    }
+    
 }
 
 extension SearchAddressViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        DispatchQueue.main.async {
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             print(searchText)
             if searchText.isEmpty {
                 self.addressArray = []
             } else {
-                self.requestAddress(region: searchText)
+                DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                    self.requestAddress(region: searchText)
+                })
             }
             self.tableView.reloadData()
         }

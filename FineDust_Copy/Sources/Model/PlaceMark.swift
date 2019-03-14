@@ -24,6 +24,12 @@ struct PlaceMark {
         self.subLocality = subLocality
     }
     
+    init(administrativeArea: String, locality: String, subLocality: String) {
+        self.administrativeArea = administrativeArea
+        self.locality = locality
+        self.subLocality = subLocality
+    }
+    
     init() {
         self.administrativeArea = ""
         self.locality = ""

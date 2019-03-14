@@ -35,6 +35,7 @@ final class MainViewController: UIViewController {
     
     
     //MARK:- Properties
+    
     private var fineDustService: FineDustServiceType?
     private var placeMark: PlaceMark?
     private var locationManager: LocationManager?
@@ -65,6 +66,42 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+        setupBackgroundAnimation()
+        setupNotification()
+        
+        
+        guard locationManager?.isUseLocationService() ?? false else {
+            locationAuthCheckAlert()
+            return
+        }
+
+        updateRegion(notification: nil)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
+    
+    //MARK:- Setup
+    
+    private func setupUI() {
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        [tableView].forEach { view.addSubview($0) }
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+    }
+    
+    private func setupBackgroundAnimation() {
         let flakeEmitterCell = CAEmitterCell()
         flakeEmitterCell.contents = UIImage(named: "Terms")?.cgImage
         flakeEmitterCell.scale = 0.06
@@ -87,67 +124,33 @@ final class MainViewController: UIViewController {
         snowEmitterLayer.timeOffset = 10
         snowEmitterLayer.emitterCells = [flakeEmitterCell]
         view.layer.addSublayer(snowEmitterLayer)
-        
-        
-        
-        
-        
-        
+    }
+    
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateRegion(notification:)), name: NSNotification.Name.init(App.Constant.updateRegion.rawValue), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+}
 
-        setupUI()
-        guard locationManager?.isUseLocationService() ?? false else {
-            locationAuthCheckAlert()
-            return
-        }
-        locationManager?.reverseGeocoderLocation { [weak self] placeMark in
-            DispatchQueue.main.async {
-                guard let city = placeMark.administrativeArea else { return }
-                self?.placeMark = PlaceMark(placeMark: placeMark)
-                self?.requestFineDust(city: city.convertCityShortening)
-            }
-        }
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    
-    
-    
-    
-    //MARK:- Setup
-    
-    private func setupUI() {
-        
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        [tableView].forEach { view.addSubview($0) }
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-    }
-    
-    
-    
-    
-    //MARK:- Action Handle
+
+//MARK:- Action Handle
+extension MainViewController {
     
     private func requestFineDust(city: String) {
         fineDustService?.requestFineDustInfo(sido: city) { [weak self] response in
             guard let self = self else { return }
-                switch response {
-                case .success(let fineDustInfo):
-                    print("", fineDustInfo)
-                    self.mainFineDusts = fineDustInfo
-                    self.tableView.reloadData()
-                case .failure(let error):
-                    print("erorr", error)
-                }
+            switch response {
+            case .success(let fineDustInfo):
+                print("", fineDustInfo)
+                self.mainFineDusts = fineDustInfo
+                self.tableView.reloadData()
+            case .failure(let error):
+                print("erorr", error)
+            }
         }
     }
     
@@ -165,10 +168,24 @@ final class MainViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    
-    
+    @objc private func updateRegion(notification: Notification?) {
+        locationManager?.reverseGeocoderLocation { [weak self] placeMark in
+            DispatchQueue.main.async {
+                if let region = notification?.userInfo?[App.Constant.updateRegion.rawValue] as? Juso {
+                    self?.placeMark = PlaceMark(administrativeArea: region.siNm, locality: region.sggNm, subLocality: region.emdNm)
+                    self?.requestFineDust(city: region.siNm.convertCityShortening)
+                } else {
+                    guard let city = placeMark.administrativeArea else { return }
+                    self?.placeMark = PlaceMark(placeMark: placeMark)
+                    self?.requestFineDust(city: city.convertCityShortening)
+                }
+            }
+        }
+    }
 }
 
+
+//MARK:- UITableView Datasource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -184,20 +201,20 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
+
+//MARK:- UITableView Delegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 830
     }
 }
 
+
+//MARK:- MainFineDustCell Delegate
 extension MainViewController: MainFineDustCellDelegate {
     
     func mainFineDustCell(_ mainFineDustCell: MainFineDustCell, didTapLocationButton: UIButton) {
-        
-        
-//        self.navigationController?.pushViewController(SearchAddressViewController(), animated: true)
         present(SearchAddressViewController(addressService: AddressService()), animated: true, completion: nil)
-        
     }
     
 }

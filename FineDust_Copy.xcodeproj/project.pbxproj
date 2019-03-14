@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C0104E12225950200CDA230 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0104E02225950200CDA230 /* CommonExtension.swift */; };
+		5C66084B223A474800138A73 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C66084A223A474800138A73 /* App.swift */; };
 		5CAA0A39221BE28300BDE83B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A38221BE28300BDE83B /* AppDelegate.swift */; };
 		5CAA0A3E221BE28300BDE83B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA0A3C221BE28300BDE83B /* Main.storyboard */; };
 		5CAA0A40221BE28400BDE83B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA0A3F221BE28400BDE83B /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		06406FA20EDEB80D875A07B9 /* Pods_FineDust_Copy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FineDust_Copy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B46C5AA91C64E7EF4214841 /* Pods-FineDust_Copy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FineDust_Copy.release.xcconfig"; path = "Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy.release.xcconfig"; sourceTree = "<group>"; };
 		5C0104E02225950200CDA230 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
+		5C66084A223A474800138A73 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5CAA0A35221BE28300BDE83B /* FineDust_Copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FineDust_Copy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAA0A38221BE28300BDE83B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CAA0A3D221BE28300BDE83B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		5CAA0A51221BE6E600BDE83B /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				5C66084A223A474800138A73 /* App.swift */,
 				5CAA0A52221BE8CF00BDE83B /* UIView+LayoutAnchor.swift */,
 				5C0104E02225950200CDA230 /* CommonExtension.swift */,
 			);
@@ -342,6 +345,7 @@
 				5CAA0A78222E116900BDE83B /* CurrentLocationCell.swift in Sources */,
 				5CAA0A6D22261DA100BDE83B /* LocationManager.swift in Sources */,
 				5CAA0A56221D727300BDE83B /* FineDustService.swift in Sources */,
+				5C66084B223A474800138A73 /* App.swift in Sources */,
 				5CAA0A7C222E52E300BDE83B /* AddressService.swift in Sources */,
 				5CAA0A752227E69F00BDE83B /* SearchAddressViewController.swift in Sources */,
 				5CAA0A6722237A8E00BDE83B /* Router.swift in Sources */,

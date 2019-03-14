@@ -29,8 +29,6 @@ class SearchedAddressCell: UITableViewCell {
     
     
     
-    
-    
     //MARK:- Initialize
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

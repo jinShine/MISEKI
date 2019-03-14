@@ -32,10 +32,7 @@ class CurrentLocationCell: UITableViewCell {
     
     
     //MARK:- Properties
-    
-    
-    
-    
+
     
     //MARK:- Initialize
     
