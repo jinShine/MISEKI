@@ -16,64 +16,102 @@ class MainFineDustCell: UITableViewCell {
     
     struct UI {
         static let basicMargin: CGFloat                 = 8
+        static let mainDustInnerMargin: CGFloat         = 48
         static let naviInfoContainerHeight: CGFloat     = 46
+        static let mainStateImageSize: CGFloat          = 30
         static let naviButtonSize: CGFloat              = 24
         static let dustStatusFontValue: CGFloat         = 60
         static let dustStateLabelHeight: CGFloat        = 450
-        static let stateImageSize: CGFloat              = 10
+        static let stateImageSize: CGFloat              = 14
         static let detailInfoStackViewHeight: CGFloat   = 80
         static let detailFont: UIFont = UIFont.systemFont(ofSize: 15)
     }
     
     //MARK:- UI Properties
     
+    
+    ///// NAVI
     let naviInfoContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         return view
     }()
     
-    let currentTimeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "2월 19일(화) 오후 6:38"
-        label.textColor = .white
-        return label
+    let findLocationButton: UIButton = {
+        let button = UIButton(type: UIButton.ButtonType.custom)
+        button.setImage(UIImage(named: "Location"), for: UIControl.State.normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(didTapLocation(_:)), for: UIControl.Event.touchUpInside)
+        return button
     }()
     
     let sharingButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.custom)
-        button.setImage(UIImage(named: "Terms"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "Share"), for: UIControl.State.normal)
         return button
     }()
     
     let settingButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.custom)
-        button.setImage(UIImage(named: "Terms"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "Settings"), for: UIControl.State.normal)
         return button
     }()
     
-    lazy var currentLocationButton: UIButton = {
-        let button = UIButton()
-        button.contentHorizontalAlignment = .left
-        button.setTitle(" - ", for: UIControl.State.normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        button.setImage(UIImage(named: "Location"), for: UIControl.State.normal)
-        button.semanticContentAttribute = .forceLeftToRight // Discuss
-        button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top: UI.basicMargin, left: UI.basicMargin, bottom: UI.basicMargin, right: UI.basicMargin)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: UI.basicMargin, bottom: 0, right: 0)
-        button.addTarget(self, action: #selector(didTapLocation(_:)), for: UIControl.Event.touchUpInside)
-        return button
+    
+    ///// MainDust ImageView
+    let mainDustImageViewContainer: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "Rectangle")
+        imageView.backgroundColor = .white
+        imageView.contentMode = .scaleToFill
+        return imageView
+    }()
+    
+    lazy var currentLocationLabel: UILabel = {
+        let label = UILabel()
+        label.font = FontName.sfHeavy(17).font
+        label.text = " - "
+        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        return label
     }()
     
     let dustStateValueLabel: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textAlignment = .center
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: UI.dustStatusFontValue, weight: UIFont.Weight.bold)
+        label.textColor = .black
+        label.adjustsFontSizeToFitWidth = true
+        label.font = FontName.sfBold(50).font
         return label
     }()
+    
+    let dustStateImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "State1")
+        return imageView
+    }()
+    
+    let dustStateAngelCommnet: UILabel = {
+        let label = UILabel()
+//        label.text = "😇 어린이, 노인, 노약자\n장시간 실외활동 가급적 자제하세요"
+        label.textAlignment = .left
+        label.font = FontName.sfBold(20).font
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let dustStateDevilCommnet: UILabel = {
+        let label = UILabel()
+//        label.text = "뭐 어때~ 놀자! 👿"
+        label.textAlignment = .right
+        label.font = FontName.sfBold(20).font
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    
+    
+    
+    ///// MainDust Detail\
     
     //미세먼지
     let fineDustContainer: UIView = {
@@ -81,26 +119,25 @@ class MainFineDustCell: UITableViewCell {
         return view
     }()
     
-    let fineDustStateImage: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
+    let fineDustStateImage: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
     }()
     
     let fineDustStateTitle: UILabel = {
         let label = UILabel()
         label.text = "미세먼지"
-        label.textColor = .white
-        label.font = UI.detailFont
+        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
     let fineDustStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .white
+        label.textColor = .black
         label.textAlignment = .right
-        label.font = UI.detailFont
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
@@ -110,26 +147,25 @@ class MainFineDustCell: UITableViewCell {
         return view
     }()
     
-    lazy var ultrafineDustStateImage: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
+    lazy var ultrafineDustStateImage: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
     }()
     
     let ultrafineDustStateTitle: UILabel = {
         let label = UILabel()
         label.text = "초미세먼지"
-        label.textColor = .white
-        label.font = UI.detailFont
+        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
     let ultrafineDustStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .white
+        label.textColor = .black
         label.textAlignment = .right
-        label.font = UI.detailFont
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
@@ -139,26 +175,25 @@ class MainFineDustCell: UITableViewCell {
         return view
     }()
     
-    let nitrogenDioxideStateImage: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
+    let nitrogenDioxideStateImage: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
     }()
     
     let nitrogenDioxideStateTitle: UILabel = {
         let label = UILabel()
         label.text = "이산화질소"
-        label.textColor = .white
-        label.font = UI.detailFont
+        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
     let nitrogenDioxideStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .white
+        label.textColor = .black
         label.textAlignment = .right
-        label.font = UI.detailFont
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
@@ -168,26 +203,25 @@ class MainFineDustCell: UITableViewCell {
         return view
     }()
     
-    let ozoneStateImage: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
+    let ozoneStateImage: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
     }()
     
     let ozoneStateTitle: UILabel = {
         let label = UILabel()
         label.text = "오존"
-        label.textColor = .white
-        label.font = UI.detailFont
+        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
     let ozoneStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .white
+        label.textColor = .black
         label.textAlignment = .right
-        label.font = UI.detailFont
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
@@ -197,26 +231,25 @@ class MainFineDustCell: UITableViewCell {
         return view
     }()
     
-    let carbonMonoxideStateImage: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
+    let carbonMonoxideStateImage: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
     }()
     
     let carbonMonoxideStateTitle: UILabel = {
         let label = UILabel()
         label.text = "일산화탄소"
-        label.textColor = .white
-        label.font = UI.detailFont
+        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
     let carbonMonoxideStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .white
+        label.textColor = .black
         label.textAlignment = .right
-        label.font = UI.detailFont
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
@@ -226,26 +259,25 @@ class MainFineDustCell: UITableViewCell {
         return view
     }()
     
-    let sulfurDioxideStateImage: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
+    let sulfurDioxideStateImage: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
     }()
     
     let sulfurDioxideStateTitle: UILabel = {
         let label = UILabel()
         label.text = "아황산가스"
-        label.textColor = .white
-        label.font = UI.detailFont
+        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
     let sulfurDioxideStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .white
+        label.textColor = .black
         label.textAlignment = .right
-        label.font = UI.detailFont
+        label.font = FontName.sfBold(17).font
         return label
     }()
     
@@ -336,9 +368,8 @@ class MainFineDustCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = .clear
+        backgroundColor = .white
         setupUI()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -351,12 +382,16 @@ class MainFineDustCell: UITableViewCell {
     private func setupUI() {
         
         // Discuss
-        [naviInfoContainerView, currentLocationButton, dustStateValueLabel,
+        [naviInfoContainerView, mainDustImageViewContainer,
          detailStateContainerStackView, forecastContainer].forEach {
             addSubview($0)
         }
         
-        [currentTimeLabel, sharingButton, settingButton].forEach { naviInfoContainerView.addSubview($0) }
+        [findLocationButton, sharingButton, settingButton].forEach { naviInfoContainerView.addSubview($0) }
+        [currentLocationLabel, dustStateValueLabel, dustStateImage,
+         dustStateAngelCommnet, dustStateDevilCommnet
+         ].forEach { mainDustImageViewContainer.addSubview($0) }
+        
         [fineDustStateImage, fineDustStateTitle, fineDustStateValue].forEach { fineDustContainer.addSubview($0) }
         [ultrafineDustStateImage, ultrafineDustStateTitle, ultrafineDustStateValue].forEach { ultrafineDustContainer.addSubview($0) }
         [nitrogenDioxideStateImage, nitrogenDioxideStateTitle, nitrogenDioxideStateValue].forEach { nitrogenDioxideContainer.addSubview($0) }
@@ -370,6 +405,7 @@ class MainFineDustCell: UITableViewCell {
         }
         
         
+        /////Navi
         naviInfoContainerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             naviInfoContainerView.topAnchor.constraint(equalTo: topAnchor),
@@ -378,11 +414,12 @@ class MainFineDustCell: UITableViewCell {
             naviInfoContainerView.heightAnchor.constraint(equalToConstant: UI.naviInfoContainerHeight)
             ])
         
-        currentTimeLabel.translatesAutoresizingMaskIntoConstraints = false
+        findLocationButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            currentTimeLabel.centerYAnchor.constraint(equalTo: naviInfoContainerView.centerYAnchor),
-            currentTimeLabel.leadingAnchor.constraint(equalTo: naviInfoContainerView.leadingAnchor, constant: UI.basicMargin * 2),
-            currentTimeLabel.trailingAnchor.constraint(equalTo: sharingButton.leadingAnchor, constant: -(UI.basicMargin * 2))
+            findLocationButton.centerYAnchor.constraint(equalTo: naviInfoContainerView.centerYAnchor),
+            findLocationButton.trailingAnchor.constraint(equalTo: sharingButton.leadingAnchor, constant: -(UI.basicMargin * 2)),
+            findLocationButton.heightAnchor.constraint(equalToConstant: UI.naviButtonSize),
+            findLocationButton.widthAnchor.constraint(equalToConstant: UI.naviButtonSize)
             ])
         
         sharingButton.translatesAutoresizingMaskIntoConstraints = false
@@ -390,7 +427,7 @@ class MainFineDustCell: UITableViewCell {
             sharingButton.centerYAnchor.constraint(equalTo: naviInfoContainerView.centerYAnchor),
             sharingButton.trailingAnchor.constraint(equalTo: settingButton.leadingAnchor, constant: -(UI.basicMargin * 2)),
             sharingButton.heightAnchor.constraint(equalToConstant: UI.naviButtonSize),
-            sharingButton.widthAnchor.constraint(equalToConstant: UI.naviButtonSize)
+            sharingButton.widthAnchor.constraint(equalToConstant: 20)
             ])
         
         settingButton.translatesAutoresizingMaskIntoConstraints = false
@@ -401,21 +438,58 @@ class MainFineDustCell: UITableViewCell {
             settingButton.widthAnchor.constraint(equalToConstant: UI.naviButtonSize)
             ])
         
-        currentLocationButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        /////Main Container
+        mainDustImageViewContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            currentLocationButton.topAnchor.constraint(equalTo: naviInfoContainerView.bottomAnchor, constant: UI.basicMargin),
-            currentLocationButton.leadingAnchor.constraint(equalTo: naviInfoContainerView.leadingAnchor),
-            currentLocationButton.trailingAnchor.constraint(equalTo: naviInfoContainerView.trailingAnchor)
+            mainDustImageViewContainer.topAnchor.constraint(equalTo: naviInfoContainerView.bottomAnchor, constant: UI.basicMargin),
+            mainDustImageViewContainer.centerXAnchor.constraint(equalTo: centerXAnchor),
+            mainDustImageViewContainer.leadingAnchor.constraint(equalTo: naviInfoContainerView.leadingAnchor, constant: UI.basicMargin * 2),
+            mainDustImageViewContainer.trailingAnchor.constraint(equalTo: naviInfoContainerView.trailingAnchor, constant: -(UI.basicMargin * 2)),
+            mainDustImageViewContainer.heightAnchor.constraint(equalToConstant: 350)
+            ])
+        
+        currentLocationLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            currentLocationLabel.topAnchor.constraint(equalTo: mainDustImageViewContainer.topAnchor, constant: UI.mainDustInnerMargin),
+            currentLocationLabel.leadingAnchor.constraint(equalTo: mainDustImageViewContainer.leadingAnchor, constant: UI.mainDustInnerMargin),
+            currentLocationLabel.trailingAnchor.constraint(equalTo: mainDustImageViewContainer.trailingAnchor, constant: -(UI.mainDustInnerMargin))
             ])
         
         dustStateValueLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            dustStateValueLabel.topAnchor.constraint(equalTo: currentLocationButton.bottomAnchor, constant: UI.basicMargin * 2),
-            dustStateValueLabel.leadingAnchor.constraint(equalTo: naviInfoContainerView.leadingAnchor),
-            dustStateValueLabel.trailingAnchor.constraint(equalTo: naviInfoContainerView.trailingAnchor),
-            dustStateValueLabel.heightAnchor.constraint(equalToConstant: UI.dustStateLabelHeight)
+            dustStateValueLabel.topAnchor.constraint(equalTo: currentLocationLabel.bottomAnchor, constant: UI.basicMargin * 2),
+            dustStateValueLabel.leadingAnchor.constraint(equalTo: mainDustImageViewContainer.leadingAnchor, constant: UI.mainDustInnerMargin)
             ])
         
+        dustStateImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dustStateImage.bottomAnchor.constraint(equalTo: dustStateValueLabel.bottomAnchor),
+            dustStateImage.leadingAnchor.constraint(equalTo: dustStateValueLabel.trailingAnchor, constant: UI.basicMargin),
+            dustStateImage.trailingAnchor.constraint(greaterThanOrEqualTo: mainDustImageViewContainer.trailingAnchor, constant: -UI.mainDustInnerMargin),
+            dustStateImage.widthAnchor.constraint(equalToConstant: UI.mainStateImageSize),
+            dustStateImage.heightAnchor.constraint(equalToConstant: UI.mainStateImageSize)
+            ])
+        
+        dustStateAngelCommnet.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dustStateAngelCommnet.topAnchor.constraint(equalTo: dustStateValueLabel.bottomAnchor, constant: UI.basicMargin * 2),
+            dustStateAngelCommnet.leadingAnchor.constraint(equalTo: dustStateValueLabel.leadingAnchor),
+            dustStateAngelCommnet.trailingAnchor.constraint(equalTo: mainDustImageViewContainer.trailingAnchor, constant: -UI.mainDustInnerMargin)
+            ])
+        
+        dustStateDevilCommnet.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dustStateDevilCommnet.topAnchor.constraint(equalTo: dustStateAngelCommnet.bottomAnchor, constant: UI.basicMargin),
+            dustStateDevilCommnet.leadingAnchor.constraint(equalTo: dustStateAngelCommnet.leadingAnchor),
+            dustStateDevilCommnet.trailingAnchor.constraint(equalTo: dustStateAngelCommnet.trailingAnchor),
+            dustStateDevilCommnet.bottomAnchor.constraint(equalTo: mainDustImageViewContainer.bottomAnchor, constant: -UI.mainDustInnerMargin)
+            ])
+        
+        
+        
+        
+        /////Detail
         fineDustStateImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             fineDustStateImage.centerYAnchor.constraint(equalTo: fineDustContainer.centerYAnchor),
@@ -572,7 +646,7 @@ class MainFineDustCell: UITableViewCell {
         
         detailStateContainerStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            detailStateContainerStackView.topAnchor.constraint(equalTo:  dustStateValueLabel.bottomAnchor, constant: UI.basicMargin),
+            detailStateContainerStackView.topAnchor.constraint(equalTo:  mainDustImageViewContainer.bottomAnchor, constant: UI.basicMargin),
             detailStateContainerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UI.basicMargin * 2),
             detailStateContainerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(UI.basicMargin * 2)),
             detailStateContainerStackView.heightAnchor.constraint(equalToConstant: UI.detailInfoStackViewHeight)
@@ -643,10 +717,21 @@ class MainFineDustCell: UITableViewCell {
         
         // Current Location
         let currentLocation = "\(administrativeArea) \(locality) \(subLocality)"
-        currentLocationButton.setTitle(currentLocation, for: UIControl.State.normal)
+        currentLocationLabel.text = currentLocation
         
-        // Main Status
+        // Main State
         dustStateValueLabel.text = data.pm10Grade.convertValueToStatus
+        
+        // Main State Image
+        dustStateImage.image = data.pm10Grade.convertValueToStateImage
+        
+        // Main Angel Commnet
+//        let dd = data.pm10Grade.convertGradeToAngelComment
+//        print("DDDDDDDDDDDDDDDD", dd)
+//        dustStateAngelCommnet.attributedText = data.pm10Grade.convertGradeToAngelComment
+        
+
+//        dustStateAngelCommnet.text =
 
         // Detail Value
         fineDustStateValue.text = data.pm10Value
@@ -657,16 +742,15 @@ class MainFineDustCell: UITableViewCell {
         sulfurDioxideStateValue.text = data.so2Value
 
         // Detail Color
-        fineDustStateImage.backgroundColor = data.pm10Grade.convertValueToColor
-        ultrafineDustStateImage.backgroundColor = data.pm25Grade.convertValueToColor
-        nitrogenDioxideStateImage.backgroundColor = data.no2Grade.convertValueToColor
-        ozoneStateImage.backgroundColor = data.o3Grade.convertValueToColor
-        carbonMonoxideStateImage.backgroundColor = data.coGrade.convertValueToColor
-        sulfurDioxideStateImage.backgroundColor = data.so2Grade.convertValueToColor
+        fineDustStateImage.image = data.pm10Grade.convertValueToStateImage
+        ultrafineDustStateImage.image = data.pm25Grade.convertValueToStateImage
+        nitrogenDioxideStateImage.image = data.no2Grade.convertValueToStateImage
+        ozoneStateImage.image = data.o3Grade.convertValueToStateImage
+        carbonMonoxideStateImage.image = data.coGrade.convertValueToStateImage
+        sulfurDioxideStateImage.image = data.so2Grade.convertValueToStateImage
     }
     
     @objc private func didTapLocation(_ sender: UIButton) {
         delegate?.mainFineDustCell(self, didTapLocationButton: sender)
     }
 }
-

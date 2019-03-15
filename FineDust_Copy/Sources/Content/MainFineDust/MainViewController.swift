@@ -67,7 +67,7 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        setupBackgroundAnimation()
+//        setupBackgroundAnimation()
         setupNotification()
         
         
@@ -89,7 +89,7 @@ final class MainViewController: UIViewController {
     private func setupUI() {
         
         navigationController?.setNavigationBarHidden(true, animated: false)
-        
+        view.backgroundColor = .white
         [tableView].forEach { view.addSubview($0) }
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
