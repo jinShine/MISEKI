@@ -50,12 +50,13 @@
 		5C6608C0223B6D1B00138A73 /* SF-Pro-Display-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C66089D223B6D1A00138A73 /* SF-Pro-Display-BlackItalic.otf */; };
 		5C6608C1223B6D1B00138A73 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C66089E223B6D1A00138A73 /* SF-Pro-Display-Black.otf */; };
 		5C6608C2223B6D1B00138A73 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C66089E223B6D1A00138A73 /* SF-Pro-Display-Black.otf */; };
+		5C9875C8223CFF21003A8E01 /* DustStateGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9875C7223CFF21003A8E01 /* DustStateGraph.swift */; };
 		5CAA0A39221BE28300BDE83B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A38221BE28300BDE83B /* AppDelegate.swift */; };
 		5CAA0A3E221BE28300BDE83B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA0A3C221BE28300BDE83B /* Main.storyboard */; };
 		5CAA0A40221BE28400BDE83B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA0A3F221BE28400BDE83B /* Assets.xcassets */; };
 		5CAA0A43221BE28400BDE83B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA0A41221BE28400BDE83B /* LaunchScreen.storyboard */; };
 		5CAA0A4B221BE2AD00BDE83B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A4A221BE2AD00BDE83B /* MainViewController.swift */; };
-		5CAA0A50221BE5CA00BDE83B /* MainFineDustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A4F221BE5CA00BDE83B /* MainFineDustCell.swift */; };
+		5CAA0A50221BE5CA00BDE83B /* DustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A4F221BE5CA00BDE83B /* DustCell.swift */; };
 		5CAA0A53221BE8CF00BDE83B /* UIView+LayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A52221BE8CF00BDE83B /* UIView+LayoutAnchor.swift */; };
 		5CAA0A56221D727300BDE83B /* FineDustService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A55221D727300BDE83B /* FineDustService.swift */; };
 		5CAA0A642223792800BDE83B /* FineDustServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA0A632223792800BDE83B /* FineDustServiceType.swift */; };
@@ -126,6 +127,7 @@
 		5C66089C223B6D1A00138A73 /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
 		5C66089D223B6D1A00138A73 /* SF-Pro-Display-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BlackItalic.otf"; sourceTree = "<group>"; };
 		5C66089E223B6D1A00138A73 /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
+		5C9875C7223CFF21003A8E01 /* DustStateGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStateGraph.swift; sourceTree = "<group>"; };
 		5CAA0A35221BE28300BDE83B /* FineDust_Copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FineDust_Copy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAA0A38221BE28300BDE83B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CAA0A3D221BE28300BDE83B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,7 +135,7 @@
 		5CAA0A42221BE28400BDE83B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CAA0A44221BE28400BDE83B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CAA0A4A221BE2AD00BDE83B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		5CAA0A4F221BE5CA00BDE83B /* MainFineDustCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFineDustCell.swift; sourceTree = "<group>"; };
+		5CAA0A4F221BE5CA00BDE83B /* DustCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustCell.swift; sourceTree = "<group>"; };
 		5CAA0A52221BE8CF00BDE83B /* UIView+LayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayoutAnchor.swift"; sourceTree = "<group>"; };
 		5CAA0A55221D727300BDE83B /* FineDustService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustService.swift; sourceTree = "<group>"; };
 		5CAA0A632223792800BDE83B /* FineDustServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustServiceType.swift; sourceTree = "<group>"; };
@@ -265,7 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				5CAA0A4A221BE2AD00BDE83B /* MainViewController.swift */,
-				5CAA0A4F221BE5CA00BDE83B /* MainFineDustCell.swift */,
+				5CAA0A4F221BE5CA00BDE83B /* DustCell.swift */,
+				5C9875C7223CFF21003A8E01 /* DustStateGraph.swift */,
 			);
 			path = MainFineDust;
 			sourceTree = "<group>";
@@ -528,12 +531,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FineDust_Copy/Pods-FineDust_Copy-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/fluid-slider/fluid_slider.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fluid_slider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -557,7 +564,7 @@
 			files = (
 				5CAA0A7A222E52A800BDE83B /* AddressServiceType.swift in Sources */,
 				5CAA0A80222E797700BDE83B /* SearchedAddressCell.swift in Sources */,
-				5CAA0A50221BE5CA00BDE83B /* MainFineDustCell.swift in Sources */,
+				5CAA0A50221BE5CA00BDE83B /* DustCell.swift in Sources */,
 				5CAA0A642223792800BDE83B /* FineDustServiceType.swift in Sources */,
 				5CAA0A6F222663AA00BDE83B /* PlaceMark.swift in Sources */,
 				5C660865223B46F400138A73 /* Font+Extension.swift in Sources */,
@@ -565,6 +572,7 @@
 				5CAA0A78222E116900BDE83B /* CurrentLocationCell.swift in Sources */,
 				5CAA0A6D22261DA100BDE83B /* LocationManager.swift in Sources */,
 				5CAA0A56221D727300BDE83B /* FineDustService.swift in Sources */,
+				5C9875C8223CFF21003A8E01 /* DustStateGraph.swift in Sources */,
 				5C66084B223A474800138A73 /* App.swift in Sources */,
 				5CAA0A7C222E52E300BDE83B /* AddressService.swift in Sources */,
 				5CAA0A752227E69F00BDE83B /* SearchAddressViewController.swift in Sources */,

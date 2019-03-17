@@ -1,16 +1,24 @@
 PODS:
   - Alamofire (4.8.1)
+  - fluid-slider (1.0.0):
+    - pop
+  - pop (1.0.12)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - fluid-slider
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - fluid-slider
+    - pop
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  fluid-slider: a19a991606a34a545cba9341e7422073b4ec3a66
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
 
-PODFILE CHECKSUM: 3d81c425519ef8a61ad18fb1a32b7e5bb679ebe7
+PODFILE CHECKSUM: bcbb2ca32ff6262df60d49ffc2ca2dedf8d72652
 
 COCOAPODS: 1.5.3

@@ -14,7 +14,10 @@ final class MainViewController: UIViewController {
     //MARK:- UI Constant
     
     private struct UI {
-        static let tableViewHeight: CGFloat = 830
+        static let basicMargin: CGFloat                 = 8
+        static let navigationHeight: CGFloat            = 46
+        static let buttonSizeInNavigation: CGFloat      = 24
+        static let tableViewHeight: CGFloat             = 830
     }
     
     
@@ -27,9 +30,39 @@ final class MainViewController: UIViewController {
         tableView.separatorColor = .clear
         tableView.backgroundColor = .clear
         tableView.allowsSelection = false
+        tableView.showsVerticalScrollIndicator = false
         tableView.tableFooterView = UIView()
-        tableView.register(MainFineDustCell.self, forCellReuseIdentifier: String(describing: MainFineDustCell.self))
+        tableView.register(DustCell.self, forCellReuseIdentifier: String(describing: DustCell.self))
         return tableView
+    }()
+    
+    
+    // Custom Navigation
+    let navigationContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    // Buttons in Custom Navigation
+    let findLocationButton: UIButton = {
+        let button = UIButton(type: UIButton.ButtonType.custom)
+        button.setImage(UIImage(named: "Location"), for: UIControl.State.normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(didTapLocation(_:)), for: UIControl.Event.touchUpInside)
+        return button
+    }()
+    
+    let sharingButton: UIButton = {
+        let button = UIButton(type: UIButton.ButtonType.custom)
+        button.setImage(UIImage(named: "Share"), for: UIControl.State.normal)
+        return button
+    }()
+    
+    let settingButton: UIButton = {
+        let button = UIButton(type: UIButton.ButtonType.custom)
+        button.setImage(UIImage(named: "Settings"), for: UIControl.State.normal)
+        return button
     }()
     
     
@@ -63,6 +96,7 @@ final class MainViewController: UIViewController {
     
     
     //MARK:- Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,14 +124,54 @@ final class MainViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = .white
-        [tableView].forEach { view.addSubview($0) }
+        
+        [navigationContainerView, tableView].forEach { view.addSubview($0) }
+        [findLocationButton, sharingButton, settingButton].forEach { navigationContainerView.addSubview($0) }
+        
+        // Custom Navigation
+        navigationContainerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            navigationContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            navigationContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            navigationContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            navigationContainerView.heightAnchor.constraint(equalToConstant: UI.navigationHeight)
+            ])
+        
+        // Buttons In Custom Navigation
+        findLocationButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            findLocationButton.centerYAnchor.constraint(equalTo: navigationContainerView.centerYAnchor),
+            findLocationButton.trailingAnchor.constraint(equalTo: sharingButton.leadingAnchor, constant: -(UI.basicMargin * 2)),
+            findLocationButton.heightAnchor.constraint(equalToConstant: UI.buttonSizeInNavigation),
+            findLocationButton.widthAnchor.constraint(equalToConstant: UI.buttonSizeInNavigation)
+            ])
+        
+        sharingButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            sharingButton.centerYAnchor.constraint(equalTo: navigationContainerView.centerYAnchor),
+            sharingButton.trailingAnchor.constraint(equalTo: settingButton.leadingAnchor, constant: -(UI.basicMargin * 2)),
+            sharingButton.heightAnchor.constraint(equalToConstant: UI.buttonSizeInNavigation),
+            sharingButton.widthAnchor.constraint(equalToConstant: 20)
+            ])
+        
+        settingButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            settingButton.centerYAnchor.constraint(equalTo: navigationContainerView.centerYAnchor),
+            settingButton.trailingAnchor.constraint(equalTo: navigationContainerView.trailingAnchor, constant: -(UI.basicMargin * 2)),
+            settingButton.heightAnchor.constraint(equalToConstant: UI.buttonSizeInNavigation),
+            settingButton.widthAnchor.constraint(equalToConstant: UI.buttonSizeInNavigation)
+            ])
+        
+        // TableView
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: navigationContainerView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
+        
         
     }
     
@@ -182,6 +256,10 @@ extension MainViewController {
             }
         }
     }
+    
+    @objc private func didTapLocation(_ sender: UIButton) {
+        present(SearchAddressViewController(addressService: AddressService()), animated: true, completion: nil)
+    }
 }
 
 
@@ -192,9 +270,8 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MainFineDustCell.self), for: indexPath) as? MainFineDustCell else { return UITableViewCell() }
-        
-        cell.delegate = self
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DustCell.self), for: indexPath) as? DustCell else { return UITableViewCell() }
+
         cell.configureWith(data: mainFineDusts, placeMark: placeMark ?? PlaceMark())
         
         return cell
@@ -207,14 +284,4 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 830
     }
-}
-
-
-//MARK:- MainFineDustCell Delegate
-extension MainViewController: MainFineDustCellDelegate {
-    
-    func mainFineDustCell(_ mainFineDustCell: MainFineDustCell, didTapLocationButton: UIButton) {
-        present(SearchAddressViewController(addressService: AddressService()), animated: true, completion: nil)
-    }
-    
 }

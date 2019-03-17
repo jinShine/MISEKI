@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FineDust_Copy/Sources/Content/MainFineDust/MainViewController.swift"
-            timestampString = "574269100.229142"
+            timestampString = "574492364.53825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "updateRegion(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FineDust_Copy/Sources/Content/MainFineDust/MainViewController.swift"
-            timestampString = "574269100.22947"
+            timestampString = "574492364.538347"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "updateRegion(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FineDust_Copy/Sources/Content/MainFineDust/MainViewController.swift"
-            timestampString = "574269100.229681"
+            timestampString = "574492364.538408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "requestFineDust(city:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FineDust_Copy/Sources/Content/MainFineDust/MainViewController.swift"
-            timestampString = "574269100.2298779"
+            timestampString = "574492364.538461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "requestFineDust(city:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FineDust_Copy/Sources/Content/MainFineDust/MainFineDustCell.swift"
-            timestampString = "574268614.978313"
+            timestampString = "574421022.501633"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "637"
-            endingLineNumber = "637"
-            landmarkName = "configureWith(data:placeMark:)"
+            startingLineNumber = "565"
+            endingLineNumber = "565"
+            landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FineDust_Copy/Sources/Content/MainFineDust/MainFineDustCell.swift"
-            timestampString = "574268615.322902"
+            timestampString = "574421022.501996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "643"
-            endingLineNumber = "643"
-            landmarkName = "configureWith(data:placeMark:)"
+            startingLineNumber = "571"
+            endingLineNumber = "571"
+            landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
