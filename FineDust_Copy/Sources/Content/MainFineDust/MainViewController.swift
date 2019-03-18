@@ -20,7 +20,6 @@ final class MainViewController: UIViewController {
         static let tableViewHeight: CGFloat             = 830
     }
     
-    
     //MARK:- UI Property
     
     lazy var tableView: UITableView = {
@@ -33,6 +32,8 @@ final class MainViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.tableFooterView = UIView()
         tableView.register(DustCell.self, forCellReuseIdentifier: String(describing: DustCell.self))
+        tableView.register(DustStateGraph.self, forCellReuseIdentifier: String(describing: DustStateGraph.self))
+        tableView.register(DustDetail.self, forCellReuseIdentifier: String(describing: DustDetail.self))
         return tableView
     }()
     
@@ -210,6 +211,14 @@ final class MainViewController: UIViewController {
     
 }
 
+extension MainViewController {
+    enum Row: Int {
+        case DustCell
+        case DustStateGraph
+        case DustDetail
+        case totalCount
+    }
+}
 
 //MARK:- Action Handle
 extension MainViewController {
@@ -266,15 +275,35 @@ extension MainViewController {
 //MARK:- UITableView Datasource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return Row.totalCount.rawValue
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DustCell.self), for: indexPath) as? DustCell else { return UITableViewCell() }
-
-        cell.configureWith(data: mainFineDusts, placeMark: placeMark ?? PlaceMark())
         
-        return cell
+        switch indexPath.row {
+        case Row.DustCell.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DustCell.self), for: indexPath) as? DustCell else { return UITableViewCell() }
+            
+            cell.configureWith(data: mainFineDusts, placeMark: placeMark ?? PlaceMark())
+            
+            return cell
+        case Row.DustStateGraph.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DustStateGraph.self), for: indexPath) as? DustStateGraph else { return UITableViewCell() }
+            
+            //            cell.configureWith(data: mainFineDusts, placeMark: placeMark ?? PlaceMark())
+            
+            return cell
+        case Row.DustDetail.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DustDetail.self), for: indexPath) as? DustDetail else { return UITableViewCell() }
+            
+            //            cell.configureWith(data: mainFineDusts, placeMark: placeMark ?? PlaceMark())
+            
+            return cell
+            
+        default:
+            return UITableViewCell()
+        }
+        
     }
 }
 
@@ -282,6 +311,16 @@ extension MainViewController: UITableViewDataSource {
 //MARK:- UITableView Delegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 830
+
+        switch indexPath.row {
+        case Row.DustCell.rawValue:
+            return 365
+        case Row.DustStateGraph.rawValue:
+            return 150
+        case Row.DustDetail.rawValue:
+            return UITableView.automaticDimension
+        default:
+            return 0
+        }
     }
 }

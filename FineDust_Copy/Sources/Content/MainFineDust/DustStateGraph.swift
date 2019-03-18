@@ -11,64 +11,36 @@ import fluid_slider
 
 final class DustStateGraph: UITableViewCell {
     
-//
-//    let dustStateSlider: UISlider = {
-//        let slider = UISlider()
-//
-//        return slider
-//    }()
-//
-//    let niceView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = UIColor.rgb(red: 0, green: 118, blue: 255, alpha: 1)
-//        return view
-//    }()
-//
-//    let normalView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = UIColor.rgb(red: 0, green: 118, blue: 255, alpha: 1)
-//        return view
-//    }()
-//
-//    let badView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = UIColor.rgb(red: 0, green: 118, blue: 255, alpha: 1)
-//        return view
-//    }()
-//
-//    let veryBadView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = UIColor.rgb(red: 0, green: 118, blue: 255, alpha: 1)
-//        return view
-//    }()
-//
-//    let stateStackView: UIStackView = {
-//        let stackView = UIStackView()
-//        return stackView
-//    }()
+    struct UI {
+        static let basicMargin: CGFloat                 = 16
+    }
+
+    //MARK:- UI Properties
     
-    
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    let slider: Slider = {
         let slider = Slider()
         slider.attributedTextForFraction = { fraction in
             let formatter = NumberFormatter()
             formatter.maximumIntegerDigits = 3
             formatter.maximumFractionDigits = 0
-            let string = formatter.string(from: (fraction * 500) as NSNumber) ?? ""
+            let string = formatter.string(from: (fraction * 76) as NSNumber) ?? ""
             return NSAttributedString(string: string)
         }
         slider.setMinimumLabelAttributedText(NSAttributedString(string: "0"))
-        slider.setMaximumLabelAttributedText(NSAttributedString(string: "500"))
+        slider.setMaximumLabelAttributedText(NSAttributedString(string: "76~"))
         slider.fraction = 0.5
         slider.shadowOffset = CGSize(width: 0, height: 10)
         slider.shadowBlur = 5
         slider.shadowColor = UIColor(white: 0, alpha: 0.1)
         slider.contentViewColor = UIColor(red: 78/255.0, green: 77/255.0, blue: 224/255.0, alpha: 1)
         slider.valueViewColor = .white
-        addSubview(slider)
+        return slider
+    }()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        setupUI()
         
 //        slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
         
@@ -77,6 +49,16 @@ final class DustStateGraph: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+
+    //MARK:- Setup
+    private func setupUI() {
+        addSubview(slider)
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            slider.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UI.basicMargin),
+            slider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UI.basicMargin),
+            slider.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UI.basicMargin),
+            slider.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
 }
