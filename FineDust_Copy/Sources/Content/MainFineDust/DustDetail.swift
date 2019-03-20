@@ -426,4 +426,24 @@ final class DustDetail: UITableViewCell {
         
     }
 
+    func configureWith(data: FineDustModel) {
+        guard let data = data.list.first else { return }
+        
+        // Detail Value
+        fineDustStateValue.text = data.pm10Value
+        ultrafineDustStateValue.text = data.pm25Value
+        nitrogenDioxideStateValue.text = data.no2Value
+        ozoneStateValue.text = data.o3Value
+        carbonMonoxideStateValue.text = data.coValue
+        sulfurDioxideStateValue.text = data.so2Value
+
+        // Detail Color
+        fineDustStateImage.image = data.pm10Grade.convertValueToStateImage
+        ultrafineDustStateImage.image = data.pm25Grade.convertValueToStateImage
+        nitrogenDioxideStateImage.image = data.no2Grade.convertValueToStateImage
+        ozoneStateImage.image = data.o3Grade.convertValueToStateImage
+        carbonMonoxideStateImage.image = data.coGrade.convertValueToStateImage
+        sulfurDioxideStateImage.image = data.so2Grade.convertValueToStateImage
+    }
+    
 }

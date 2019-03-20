@@ -290,13 +290,13 @@ extension MainViewController: UITableViewDataSource {
         case Row.DustStateGraph.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DustStateGraph.self), for: indexPath) as? DustStateGraph else { return UITableViewCell() }
             
-            //            cell.configureWith(data: mainFineDusts, placeMark: placeMark ?? PlaceMark())
+            cell.configureWith(data: mainFineDusts)
             
             return cell
         case Row.DustDetail.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DustDetail.self), for: indexPath) as? DustDetail else { return UITableViewCell() }
             
-            //            cell.configureWith(data: mainFineDusts, placeMark: placeMark ?? PlaceMark())
+            cell.configureWith(data: mainFineDusts)
             
             return cell
             
@@ -316,7 +316,7 @@ extension MainViewController: UITableViewDelegate {
         case Row.DustCell.rawValue:
             return 365
         case Row.DustStateGraph.rawValue:
-            return 150
+            return 100
         case Row.DustDetail.rawValue:
             return UITableView.automaticDimension
         default:

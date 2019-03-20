@@ -15,13 +15,15 @@ struct PlaceMark {
     var subLocality: String?            // ex) 서초동
     
     init(placeMark: CLPlacemark) {
-        guard let administrativeArea = placeMark.administrativeArea,
-            let locality = placeMark.locality,
-            let subLocality = placeMark.subLocality else { return }
-        
-        self.administrativeArea = administrativeArea
-        self.locality = locality
-        self.subLocality = subLocality
+        if let administrativeArea = placeMark.administrativeArea {
+            self.administrativeArea = administrativeArea
+        }
+        if let locality = placeMark.locality {
+            self.locality = locality
+        }
+        if let subLocality = placeMark.subLocality {
+            self.subLocality = subLocality
+        }
     }
     
     init(administrativeArea: String, locality: String, subLocality: String) {

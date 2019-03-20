@@ -7,7 +7,6 @@ target 'FineDust_Copy' do
 
   # API
     pod 'Alamofire', '~> 4.0'
-    pod 'fluid-slider'
 
   # Pods for FineDust_Copy
 

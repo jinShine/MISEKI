@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import fluid_slider
 
 final class DustStateGraph: UITableViewCell {
     
@@ -16,37 +15,29 @@ final class DustStateGraph: UITableViewCell {
     }
 
     //MARK:- UI Properties
+    let progressView: UIProgressView = {
+        let view = UIProgressView()
+        view.layer.masksToBounds = true
+        view.progressTintColor = UIColor.fromHexString("#0076FF")
+        view.trackTintColor = UIColor(white: 0, alpha: 0.1)
+        view.layer.shadowOffset = CGSize(width: 0, height: 80)
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.cornerRadius = 10
+        view.setProgress(0.0, animated: true)
+        return view
+    }()
     
-    let slider: Slider = {
-        let slider = Slider()
-        
-        let labelTextAttributes: [NSAttributedString.Key : Any] = [.font: FontName.sfMedium(12).font, .foregroundColor: UIColor.white]
-        
-        slider.attributedTextForFraction = { fraction in
-            let formatter = NumberFormatter()
-            formatter.maximumIntegerDigits = 3
-            formatter.maximumFractionDigits = 0
-            let string = formatter.string(from: (fraction * 130) as NSNumber) ?? ""
-            return NSAttributedString(string: string)
-        }
-        
-        slider.setMinimumLabelAttributedText(NSAttributedString(string: "0", attributes: labelTextAttributes))
-        slider.setMaximumLabelAttributedText(NSAttributedString(string: "130~", attributes: labelTextAttributes))
-        slider.setMinimumImage(UIImage(named: "State2"))
-        slider.setMaximumImage(UIImage(named: "State4"))
-        slider.fraction = 0.5
-        slider.shadowOffset = CGSize(width: 0, height: 10)
-        slider.shadowBlur = 5
-        slider.shadowColor = UIColor(white: 0, alpha: 0.1)
-        slider.contentViewColor = UIColor.fromHexString("#0076FF")
-        slider.valueViewColor = .white
-
-        return slider
+    let progressValue: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.font = FontName.sfBold(15).font
+        return label
     }()
     
     let goodTitle: UILabel = {
         let label = UILabel()
         label.text = "좋음\n0"
+        label.textAlignment = .center
         label.font = FontName.sfThin(10).font
         label.numberOfLines = 0
         return label
@@ -55,6 +46,7 @@ final class DustStateGraph: UITableViewCell {
     let normalTitle: UILabel = {
         let label = UILabel()
         label.text = "보통\n16~"
+        label.textAlignment = .center
         label.font = FontName.sfThin(10).font
         label.numberOfLines = 0
         return label
@@ -63,6 +55,7 @@ final class DustStateGraph: UITableViewCell {
     let badTitle: UILabel = {
         let label = UILabel()
         label.text = "나쁨\n36~"
+        label.textAlignment = .center
         label.font = FontName.sfThin(10).font
         label.numberOfLines = 0
         return label
@@ -71,6 +64,7 @@ final class DustStateGraph: UITableViewCell {
     let veryBadTitle: UILabel = {
         let label = UILabel()
         label.text = "매우나쁨\n76~"
+        label.textAlignment = .center
         label.font = FontName.sfThin(10).font
         label.numberOfLines = 0
         return label
@@ -83,11 +77,8 @@ final class DustStateGraph: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         setupUI()
-        
-//        slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
-        
-        
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -96,53 +87,102 @@ final class DustStateGraph: UITableViewCell {
     //MARK:- Setup
     private func setupUI() {
         
-        [goodTitle, normalTitle, badTitle, veryBadTitle, slider].forEach {
+        [goodTitle, normalTitle, badTitle, veryBadTitle, progressView].forEach {
             addSubview($0)
         }
+        
+        [progressValue].forEach { progressView.addSubview($0) }
 
         goodTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            goodTitle.bottomAnchor.constraint(equalTo: slider.topAnchor, constant: -8),
+            goodTitle.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -8),
             goodTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UI.basicMargin)
             ])
-        
+
         normalTitle.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            normalTitle.bottomAnchor.constraint(equalTo: slider.topAnchor, constant: -8),
-            normalTitle.leadingAnchor.constraint(equalTo: goodTitle.trailingAnchor, constant: 20)
-            ])
-        
+        if App.Device.isIPhoneSE {
+            NSLayoutConstraint.activate([
+                normalTitle.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -8),
+                normalTitle.leadingAnchor.constraint(equalTo: goodTitle.trailingAnchor, constant: 21)
+                ])
+        } else if App.Device.isIPhoneX || App.Device.isIPhone {
+            NSLayoutConstraint.activate([
+                normalTitle.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -8),
+                normalTitle.leadingAnchor.constraint(equalTo: goodTitle.trailingAnchor, constant: 25)
+                ])
+        } else if App.Device.isIPhoneXr || App.Device.isIPhoneXsMax || App.Device.isIPhonePlus {
+            NSLayoutConstraint.activate([
+                normalTitle.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -8),
+                normalTitle.leadingAnchor.constraint(equalTo: goodTitle.trailingAnchor, constant: 37)
+                ])
+        }
+
         badTitle.translatesAutoresizingMaskIntoConstraints = false
+        if App.Device.isIPhoneSE {
+            NSLayoutConstraint.activate([
+                badTitle.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -8),
+                badTitle.leadingAnchor.constraint(equalTo: normalTitle.trailingAnchor, constant: 41)
+                ])
+        }
+        else if App.Device.isIPhoneX || App.Device.isIPhone {
+            NSLayoutConstraint.activate([
+                badTitle.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -8),
+                badTitle.leadingAnchor.constraint(equalTo: normalTitle.trailingAnchor, constant: 53)
+                ])
+        } else if App.Device.isIPhoneXr || App.Device.isIPhoneXsMax || App.Device.isIPhonePlus {
+            NSLayoutConstraint.activate([
+                badTitle.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -8),
+                badTitle.leadingAnchor.constraint(equalTo: normalTitle.trailingAnchor, constant: 57)
+                ])
+        }
+
+
+        veryBadTitle.translatesAutoresizingMaskIntoConstraints = false
+        if App.Device.isIPhoneSE {
+            NSLayoutConstraint.activate([
+                veryBadTitle.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -8),
+                veryBadTitle.centerXAnchor.constraint(equalTo: progressView.centerXAnchor, constant: 78)
+                ])
+        } else if App.Device.isIPhoneX || App.Device.isIPhone {
+            NSLayoutConstraint.activate([
+                veryBadTitle.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -8),
+                veryBadTitle.centerXAnchor.constraint(equalTo: progressView.centerXAnchor, constant: 88)
+            ])
+        } else if App.Device.isIPhoneXr || App.Device.isIPhoneXsMax || App.Device.isIPhonePlus {
+            NSLayoutConstraint.activate([
+                veryBadTitle.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -8),
+                veryBadTitle.centerXAnchor.constraint(equalTo: progressView.centerXAnchor, constant: 100)
+                ])
+        }
+
+
+        progressView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            badTitle.bottomAnchor.constraint(equalTo: slider.topAnchor, constant: -8),
-            badTitle.centerXAnchor.constraint(equalTo: slider.centerXAnchor, constant: 30)
+            progressView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UI.basicMargin),
+            progressView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UI.basicMargin),
+            progressView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UI.basicMargin),
+            progressView.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        progressValue.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            progressValue.centerYAnchor.constraint(equalTo: progressView.centerYAnchor),
+            progressValue.trailingAnchor.constraint(equalTo: progressView.trailingAnchor, constant: -UI.basicMargin)
             ])
         
-        veryBadTitle.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            veryBadTitle.bottomAnchor.constraint(equalTo: slider.topAnchor, constant: -8),
-            veryBadTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UI.basicMargin)
-        ])
-        
-        
-        slider.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            slider.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UI.basicMargin),
-            slider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UI.basicMargin),
-            slider.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UI.basicMargin),
-            slider.heightAnchor.constraint(equalToConstant: 50)
-        ])
         
 
+    }
+    
+    func configureWith(data: FineDustModel) {
+        guard let data = data.list.first else { return }
         
-        slider.didBeginTracking = { [weak self] slider in
-            print("didBeginTracking", slider)
+        let pm10Value: Float = Float(data.pm25Value) ?? 0
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {}) { _ in
+            self.progressView.setProgress(pm10Value / 100, animated: true)
         }
         
-        slider.didEndTracking = { [weak self] slider in
-            print("didEndTracking", slider)
-        }
-        
+        progressValue.text = "\(data.pm25Value)㎍/㎥"
         
     }
     
