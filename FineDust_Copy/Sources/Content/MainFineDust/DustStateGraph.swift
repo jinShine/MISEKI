@@ -158,10 +158,10 @@ final class DustStateGraph: UITableViewCell {
 
         progressView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            progressView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UI.basicMargin),
+            progressView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UI.basicMargin * 2),
             progressView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UI.basicMargin),
             progressView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UI.basicMargin),
-            progressView.heightAnchor.constraint(equalToConstant: 50)
+            progressView.heightAnchor.constraint(equalToConstant: 60)
         ])
         
         progressValue.translatesAutoresizingMaskIntoConstraints = false

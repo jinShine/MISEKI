@@ -42,6 +42,7 @@ final class SearchAddressViewController: UIViewController {
     let headerTitle: UILabel = {
         let label = UILabel()
         label.text = "위치 설정"
+        label.font = FontName.sfHeavy(35).font
         return label
     }()
     
@@ -148,7 +149,7 @@ final class SearchAddressViewController: UIViewController {
         
         headerTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            headerTitle.bottomAnchor.constraint(equalTo: searchAddressSearchBar.topAnchor, constant: -UI.basicMargin * 3),
+            headerTitle.bottomAnchor.constraint(equalTo: searchAddressSearchBar.topAnchor, constant: -UI.basicMargin * 2),
             headerTitle.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor, constant: UI.basicMargin),
             headerTitle.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor, constant: -UI.basicMargin)
         ])

@@ -48,7 +48,7 @@ final class MainViewController: UIViewController {
     // Buttons in Custom Navigation
     let findLocationButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.custom)
-        button.setImage(UIImage(named: "Location"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "Location-1"), for: UIControl.State.normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(didTapLocation(_:)), for: UIControl.Event.touchUpInside)
         return button
@@ -56,13 +56,13 @@ final class MainViewController: UIViewController {
     
     let sharingButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.custom)
-        button.setImage(UIImage(named: "Share"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "Share-1"), for: UIControl.State.normal)
         return button
     }()
     
     let settingButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.custom)
-        button.setImage(UIImage(named: "Settings"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "Settings-1"), for: UIControl.State.normal)
         return button
     }()
     
@@ -111,10 +111,6 @@ final class MainViewController: UIViewController {
         
         updateRegion(notification: nil)
         
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 
     
@@ -317,9 +313,9 @@ extension MainViewController: UITableViewDelegate {
         case Row.DustCell.rawValue:
             return 365
         case Row.DustStateGraph.rawValue:
-            return 100
+            return 130
         case Row.DustDetail.rawValue:
-            return UITableView.automaticDimension
+            return 450
         default:
             return 0
         }

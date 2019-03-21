@@ -13,8 +13,8 @@ final class DustDetail: UITableViewCell {
     //MARK:- Constant
     
     struct UI {
-        static let basicMargin: CGFloat                 = 16
-        static let stateImageSize: CGFloat              = 14
+        static let basicMargin: CGFloat                 = 20
+        static let stateImageSize: CGFloat              = 35
         static let detailInfoStackViewHeight: CGFloat   = 80
     }
     
@@ -33,7 +33,8 @@ final class DustDetail: UITableViewCell {
     let updateValueLabel: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.font = FontName.sfMedium(20).font
+        label.font = FontName.sfMedium(15).font
+        label.textColor = UIColor(white: 0, alpha: 0.5)
         return label
     }()
     
@@ -53,7 +54,8 @@ final class DustDetail: UITableViewCell {
     let fineDustStateTitle: UILabel = {
         let label = UILabel()
         label.text = "미세먼지"
-        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.textColor = UIColor.black
+        label.textAlignment = .center
         label.font = FontName.sfBold(17).font
         return label
     }()
@@ -61,9 +63,9 @@ final class DustDetail: UITableViewCell {
     let fineDustStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .black
-        label.textAlignment = .right
-        label.font = FontName.sfBold(17).font
+        label.textColor = UIColor.fromHexString("#0076FF")
+        label.textAlignment = .center
+        label.font = FontName.sfBold(16).font
         return label
     }()
     
@@ -81,7 +83,8 @@ final class DustDetail: UITableViewCell {
     let ultrafineDustStateTitle: UILabel = {
         let label = UILabel()
         label.text = "초미세먼지"
-        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.textColor = UIColor.black
+        label.textAlignment = .center
         label.font = FontName.sfBold(17).font
         return label
     }()
@@ -89,9 +92,9 @@ final class DustDetail: UITableViewCell {
     let ultrafineDustStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .black
-        label.textAlignment = .right
-        label.font = FontName.sfBold(17).font
+        label.textColor = UIColor.fromHexString("#0076FF")
+        label.textAlignment = .center
+        label.font = FontName.sfBold(16).font
         return label
     }()
     
@@ -109,7 +112,8 @@ final class DustDetail: UITableViewCell {
     let nitrogenDioxideStateTitle: UILabel = {
         let label = UILabel()
         label.text = "이산화질소"
-        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.textColor = UIColor.black
+        label.textAlignment = .center
         label.font = FontName.sfBold(17).font
         return label
     }()
@@ -117,9 +121,9 @@ final class DustDetail: UITableViewCell {
     let nitrogenDioxideStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .black
-        label.textAlignment = .right
-        label.font = FontName.sfBold(17).font
+        label.textColor = UIColor.fromHexString("#0076FF")
+        label.textAlignment = .center
+        label.font = FontName.sfBold(16).font
         return label
     }()
     
@@ -137,7 +141,8 @@ final class DustDetail: UITableViewCell {
     let ozoneStateTitle: UILabel = {
         let label = UILabel()
         label.text = "오존"
-        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.textColor = UIColor.black
+        label.textAlignment = .center
         label.font = FontName.sfBold(17).font
         return label
     }()
@@ -145,9 +150,9 @@ final class DustDetail: UITableViewCell {
     let ozoneStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .black
-        label.textAlignment = .right
-        label.font = FontName.sfBold(17).font
+        label.textColor = UIColor.fromHexString("#0076FF")
+        label.textAlignment = .center
+        label.font = FontName.sfBold(16).font
         return label
     }()
     
@@ -165,7 +170,8 @@ final class DustDetail: UITableViewCell {
     let carbonMonoxideStateTitle: UILabel = {
         let label = UILabel()
         label.text = "일산화탄소"
-        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.textColor = UIColor.black
+        label.textAlignment = .center
         label.font = FontName.sfBold(17).font
         return label
     }()
@@ -173,9 +179,9 @@ final class DustDetail: UITableViewCell {
     let carbonMonoxideStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .black
-        label.textAlignment = .right
-        label.font = FontName.sfBold(17).font
+        label.textColor = UIColor.fromHexString("#0076FF")
+        label.textAlignment = .center
+        label.font = FontName.sfBold(16).font
         return label
     }()
     
@@ -193,7 +199,8 @@ final class DustDetail: UITableViewCell {
     let sulfurDioxideStateTitle: UILabel = {
         let label = UILabel()
         label.text = "아황산가스"
-        label.textColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
+        label.textColor = UIColor.black
+        label.textAlignment = .center
         label.font = FontName.sfBold(17).font
         return label
     }()
@@ -201,20 +208,24 @@ final class DustDetail: UITableViewCell {
     let sulfurDioxideStateValue: UILabel = {
         let label = UILabel()
         label.text = " - "
-        label.textColor = .black
-        label.textAlignment = .right
-        label.font = FontName.sfBold(17).font
+        label.textColor = UIColor.fromHexString("#0076FF")
+        label.textAlignment = .center
+        label.font = FontName.sfBold(16).font
         return label
     }()
     
-    lazy var leftInnerStackView = UIStackView(arrangedSubviews:
-        [fineDustContainer, ultrafineDustContainer, nitrogenDioxideContainer]
+    lazy var firstStackView = UIStackView(arrangedSubviews:
+        [ultrafineDustContainer, fineDustContainer]
     )
-    lazy var rightInnerStackView = UIStackView(arrangedSubviews:
-        [ozoneContainer, carbonMonoxideContainer, sulfurDioxideContainer]
+    lazy var secondStackView = UIStackView(arrangedSubviews:
+        [carbonMonoxideContainer, nitrogenDioxideContainer]
     )
+    lazy var thirdStackView = UIStackView(arrangedSubviews:
+        [ozoneContainer, sulfurDioxideContainer]
+    )
+    
     lazy var detailStateContainerStackView = UIStackView(arrangedSubviews:
-        [leftInnerStackView, rightInnerStackView]
+        [firstStackView, secondStackView, thirdStackView]
     )
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -237,11 +248,11 @@ final class DustDetail: UITableViewCell {
             addSubview($0)
         }
         
-        [fineDustStateImage, fineDustStateTitle, fineDustStateValue].forEach { fineDustContainer.addSubview($0) }
         [ultrafineDustStateImage, ultrafineDustStateTitle, ultrafineDustStateValue].forEach { ultrafineDustContainer.addSubview($0) }
+        [fineDustStateImage, fineDustStateTitle, fineDustStateValue].forEach { fineDustContainer.addSubview($0) }
+        [carbonMonoxideStateImage, carbonMonoxideStateTitle, carbonMonoxideStateValue].forEach { carbonMonoxideContainer.addSubview($0) }
         [nitrogenDioxideStateImage, nitrogenDioxideStateTitle, nitrogenDioxideStateValue].forEach { nitrogenDioxideContainer.addSubview($0) }
         [ozoneStateImage, ozoneStateTitle, ozoneStateValue].forEach { ozoneContainer.addSubview($0) }
-        [carbonMonoxideStateImage, carbonMonoxideStateTitle, carbonMonoxideStateValue].forEach { carbonMonoxideContainer.addSubview($0) }
         [sulfurDioxideStateImage, sulfurDioxideStateTitle, sulfurDioxideStateValue].forEach { sulfurDioxideContainer.addSubview($0) }
         
         
@@ -261,158 +272,163 @@ final class DustDetail: UITableViewCell {
         
         
         /////Detail
-        fineDustStateImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            fineDustStateImage.centerYAnchor.constraint(equalTo: fineDustContainer.centerYAnchor),
-            fineDustStateImage.leadingAnchor.constraint(equalTo: fineDustContainer.leadingAnchor, constant: 0),
-            fineDustStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
-            fineDustStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
-            ])
-        fineDustStateImage.layer.cornerRadius = UI.stateImageSize / 2
-        fineDustStateImage.layer.masksToBounds = true
         
-        fineDustStateTitle.translatesAutoresizingMaskIntoConstraints = false
+        // 초미세먼지
+        ultrafineDustStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            fineDustStateTitle.centerYAnchor.constraint(equalTo: fineDustContainer.centerYAnchor),
-            fineDustStateTitle.leadingAnchor.constraint(equalTo: fineDustStateImage.trailingAnchor, constant: 6)
+            ultrafineDustStateTitle.centerXAnchor.constraint(equalTo: ultrafineDustContainer.centerXAnchor),
+            ultrafineDustStateTitle.leadingAnchor.constraint(equalTo: ultrafineDustContainer.leadingAnchor),
+            ultrafineDustStateTitle.trailingAnchor.constraint(equalTo: ultrafineDustContainer.trailingAnchor)
             ])
-        
-        fineDustStateValue.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            fineDustStateValue.centerYAnchor.constraint(equalTo: fineDustContainer.centerYAnchor),
-            fineDustStateValue.leadingAnchor.constraint(equalTo: fineDustStateTitle.trailingAnchor, constant: UI.basicMargin),
-            fineDustStateValue.trailingAnchor.constraint(equalTo: fineDustContainer.trailingAnchor)
-            ])
-        
         
         ultrafineDustStateImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            ultrafineDustStateImage.centerYAnchor.constraint(equalTo: ultrafineDustContainer.centerYAnchor),
-            ultrafineDustStateImage.leadingAnchor.constraint(equalTo: ultrafineDustContainer.leadingAnchor),
+            ultrafineDustStateImage.topAnchor.constraint(equalTo: ultrafineDustStateTitle.bottomAnchor, constant: 8),
+            ultrafineDustStateImage.centerXAnchor.constraint(equalTo: ultrafineDustContainer.centerXAnchor),
             ultrafineDustStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
             ultrafineDustStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
-            ])
-        ultrafineDustStateImage.layer.cornerRadius = UI.stateImageSize / 2
-        ultrafineDustStateImage.layer.masksToBounds = true
-        
-        ultrafineDustStateTitle.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            ultrafineDustStateTitle.centerYAnchor.constraint(equalTo: ultrafineDustContainer.centerYAnchor),
-            ultrafineDustStateTitle.leadingAnchor.constraint(equalTo: ultrafineDustStateImage.trailingAnchor, constant: 6)
             ])
         
         ultrafineDustStateValue.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            ultrafineDustStateValue.centerYAnchor.constraint(equalTo: ultrafineDustContainer.centerYAnchor),
-            ultrafineDustStateValue.leadingAnchor.constraint(equalTo: ultrafineDustStateTitle.trailingAnchor, constant: UI.basicMargin),
+            ultrafineDustStateValue.topAnchor.constraint(equalTo: ultrafineDustStateImage.bottomAnchor, constant: 8),
+            ultrafineDustStateValue.centerXAnchor.constraint(equalTo: ultrafineDustContainer.centerXAnchor),
+            ultrafineDustStateValue.leadingAnchor.constraint(equalTo: ultrafineDustContainer.leadingAnchor),
             ultrafineDustStateValue.trailingAnchor.constraint(equalTo: ultrafineDustContainer.trailingAnchor)
             ])
         
         
-        nitrogenDioxideStateImage.translatesAutoresizingMaskIntoConstraints = false
+        fineDustStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nitrogenDioxideStateImage.centerYAnchor.constraint(equalTo: nitrogenDioxideContainer.centerYAnchor),
-            nitrogenDioxideStateImage.leadingAnchor.constraint(equalTo: nitrogenDioxideContainer.leadingAnchor),
-            nitrogenDioxideStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
-            nitrogenDioxideStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
-            ])
-        nitrogenDioxideStateImage.layer.cornerRadius = UI.stateImageSize / 2
-        nitrogenDioxideStateImage.layer.masksToBounds = true
-        
-        nitrogenDioxideStateTitle.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nitrogenDioxideStateTitle.centerYAnchor.constraint(equalTo: nitrogenDioxideContainer.centerYAnchor),
-            nitrogenDioxideStateTitle.leadingAnchor.constraint(equalTo: nitrogenDioxideStateImage.trailingAnchor, constant: 6)
+            fineDustStateTitle.centerXAnchor.constraint(equalTo: fineDustContainer.centerXAnchor),
+            fineDustStateTitle.leadingAnchor.constraint(equalTo: fineDustContainer.leadingAnchor),
+            fineDustStateTitle.trailingAnchor.constraint(equalTo: fineDustContainer.trailingAnchor)
             ])
         
-        nitrogenDioxideStateValue.translatesAutoresizingMaskIntoConstraints = false
+        fineDustStateImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nitrogenDioxideStateValue.centerYAnchor.constraint(equalTo: nitrogenDioxideContainer.centerYAnchor),
-            nitrogenDioxideStateValue.leadingAnchor.constraint(equalTo: nitrogenDioxideStateTitle.trailingAnchor, constant: UI.basicMargin),
-            nitrogenDioxideStateValue.trailingAnchor.constraint(equalTo: nitrogenDioxideContainer.trailingAnchor)
+            fineDustStateImage.topAnchor.constraint(equalTo: fineDustStateTitle.bottomAnchor, constant: 8),
+            fineDustStateImage.centerXAnchor.constraint(equalTo: fineDustContainer.centerXAnchor),
+            fineDustStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
+            fineDustStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
             ])
         
-        ozoneStateImage.translatesAutoresizingMaskIntoConstraints = false
+        fineDustStateValue.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            ozoneStateImage.centerYAnchor.constraint(equalTo: ozoneContainer.centerYAnchor),
-            ozoneStateImage.leadingAnchor.constraint(equalTo: ozoneContainer.leadingAnchor),
-            ozoneStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
-            ozoneStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
-            ])
-        ozoneStateImage.layer.cornerRadius = UI.stateImageSize / 2
-        ozoneStateImage.layer.masksToBounds = true
-        
-        ozoneStateTitle.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            ozoneStateTitle.centerYAnchor.constraint(equalTo: ozoneContainer.centerYAnchor),
-            ozoneStateTitle.leadingAnchor.constraint(equalTo: ozoneStateImage.trailingAnchor, constant: 6)
+            fineDustStateValue.topAnchor.constraint(equalTo: fineDustStateImage.bottomAnchor, constant: 8),
+            fineDustStateValue.centerXAnchor.constraint(equalTo: fineDustContainer.centerXAnchor),
+            fineDustStateValue.leadingAnchor.constraint(equalTo: fineDustContainer.leadingAnchor),
+            fineDustStateValue.trailingAnchor.constraint(equalTo: fineDustContainer.trailingAnchor)
             ])
         
-        ozoneStateValue.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            ozoneStateValue.centerYAnchor.constraint(equalTo: ozoneContainer.centerYAnchor),
-            ozoneStateValue.leadingAnchor.constraint(equalTo: ozoneStateTitle.trailingAnchor, constant: UI.basicMargin),
-            ozoneStateValue.trailingAnchor.constraint(equalTo: ozoneContainer.trailingAnchor)
-            ])
-        
-        
-        carbonMonoxideStateImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            carbonMonoxideStateImage.centerYAnchor.constraint(equalTo: carbonMonoxideContainer.centerYAnchor),
-            carbonMonoxideStateImage.leadingAnchor.constraint(equalTo: carbonMonoxideContainer.leadingAnchor),
-            carbonMonoxideStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
-            carbonMonoxideStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
-            ])
-        carbonMonoxideStateImage.layer.cornerRadius = UI.stateImageSize / 2
-        carbonMonoxideStateImage.layer.masksToBounds = true
         
         carbonMonoxideStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            carbonMonoxideStateTitle.centerYAnchor.constraint(equalTo: carbonMonoxideContainer.centerYAnchor),
-            carbonMonoxideStateTitle.leadingAnchor.constraint(equalTo: carbonMonoxideStateImage.trailingAnchor, constant: 6)
+            carbonMonoxideStateTitle.centerXAnchor.constraint(equalTo: carbonMonoxideContainer.centerXAnchor),
+            carbonMonoxideStateTitle.leadingAnchor.constraint(equalTo: carbonMonoxideContainer.leadingAnchor),
+            carbonMonoxideStateTitle.trailingAnchor.constraint(equalTo: carbonMonoxideContainer.trailingAnchor)
+            ])
+        
+        carbonMonoxideStateImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            carbonMonoxideStateImage.topAnchor.constraint(equalTo: carbonMonoxideStateTitle.bottomAnchor, constant: 8),
+            carbonMonoxideStateImage.centerXAnchor.constraint(equalTo: carbonMonoxideContainer.centerXAnchor),
+            carbonMonoxideStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
+            carbonMonoxideStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
             ])
         
         carbonMonoxideStateValue.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            carbonMonoxideStateValue.centerYAnchor.constraint(equalTo: carbonMonoxideContainer.centerYAnchor),
-            carbonMonoxideStateValue.leadingAnchor.constraint(equalTo: carbonMonoxideStateTitle.trailingAnchor, constant: UI.basicMargin),
+            carbonMonoxideStateValue.topAnchor.constraint(equalTo: carbonMonoxideStateImage.bottomAnchor, constant: 8),
+            carbonMonoxideStateValue.centerXAnchor.constraint(equalTo: carbonMonoxideContainer.centerXAnchor),
+            carbonMonoxideStateValue.leadingAnchor.constraint(equalTo: carbonMonoxideContainer.leadingAnchor),
             carbonMonoxideStateValue.trailingAnchor.constraint(equalTo: carbonMonoxideContainer.trailingAnchor)
             ])
         
         
-        sulfurDioxideStateImage.translatesAutoresizingMaskIntoConstraints = false
+        nitrogenDioxideStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            sulfurDioxideStateImage.centerYAnchor.constraint(equalTo: sulfurDioxideContainer.centerYAnchor),
-            sulfurDioxideStateImage.leadingAnchor.constraint(equalTo: sulfurDioxideContainer.leadingAnchor),
-            sulfurDioxideStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
-            sulfurDioxideStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
+            nitrogenDioxideStateTitle.centerXAnchor.constraint(equalTo: nitrogenDioxideContainer.centerXAnchor),
+            nitrogenDioxideStateTitle.leadingAnchor.constraint(equalTo: nitrogenDioxideContainer.leadingAnchor),
+            nitrogenDioxideStateTitle.trailingAnchor.constraint(equalTo: nitrogenDioxideContainer.trailingAnchor)
             ])
-        sulfurDioxideStateImage.layer.cornerRadius = UI.stateImageSize / 2
-        sulfurDioxideStateImage.layer.masksToBounds = true
+        
+        nitrogenDioxideStateImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nitrogenDioxideStateImage.topAnchor.constraint(equalTo: nitrogenDioxideStateTitle.bottomAnchor, constant: 8),
+            nitrogenDioxideStateImage.centerXAnchor.constraint(equalTo: nitrogenDioxideContainer.centerXAnchor),
+            nitrogenDioxideStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
+            nitrogenDioxideStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
+            ])
+        
+        nitrogenDioxideStateValue.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nitrogenDioxideStateValue.topAnchor.constraint(equalTo: nitrogenDioxideStateImage.bottomAnchor, constant: 8),
+            nitrogenDioxideStateValue.centerXAnchor.constraint(equalTo: nitrogenDioxideContainer.centerXAnchor),
+            nitrogenDioxideStateValue.leadingAnchor.constraint(equalTo: nitrogenDioxideContainer.leadingAnchor),
+            nitrogenDioxideStateValue.trailingAnchor.constraint(equalTo: nitrogenDioxideContainer.trailingAnchor)
+            ])
+        
+        ozoneStateTitle.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            ozoneStateTitle.centerXAnchor.constraint(equalTo: ozoneContainer.centerXAnchor),
+            ozoneStateTitle.leadingAnchor.constraint(equalTo: ozoneContainer.leadingAnchor),
+            ozoneStateTitle.trailingAnchor.constraint(equalTo: ozoneContainer.trailingAnchor)
+            ])
+        
+        ozoneStateImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            ozoneStateImage.topAnchor.constraint(equalTo: ozoneStateTitle.bottomAnchor, constant: 8),
+            ozoneStateImage.centerXAnchor.constraint(equalTo: ozoneContainer.centerXAnchor),
+            ozoneStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
+            ozoneStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
+            ])
+        
+        ozoneStateValue.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            ozoneStateValue.topAnchor.constraint(equalTo: ozoneStateImage.bottomAnchor, constant: 8),
+            ozoneStateValue.centerXAnchor.constraint(equalTo: ozoneContainer.centerXAnchor),
+            ozoneStateValue.leadingAnchor.constraint(equalTo: ozoneContainer.leadingAnchor),
+            ozoneStateValue.trailingAnchor.constraint(equalTo: ozoneContainer.trailingAnchor)
+            ])
+        
         
         sulfurDioxideStateTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            sulfurDioxideStateTitle.centerYAnchor.constraint(equalTo: sulfurDioxideContainer.centerYAnchor),
-            sulfurDioxideStateTitle.leadingAnchor.constraint(equalTo: sulfurDioxideStateImage.trailingAnchor, constant: 6)
+            sulfurDioxideStateTitle.centerXAnchor.constraint(equalTo: sulfurDioxideContainer.centerXAnchor),
+            sulfurDioxideStateTitle.leadingAnchor.constraint(equalTo: sulfurDioxideContainer.leadingAnchor),
+            sulfurDioxideStateTitle.trailingAnchor.constraint(equalTo: sulfurDioxideContainer.trailingAnchor)
+            ])
+        
+        sulfurDioxideStateImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            sulfurDioxideStateImage.topAnchor.constraint(equalTo: sulfurDioxideStateTitle.bottomAnchor, constant: 8),
+            sulfurDioxideStateImage.centerXAnchor.constraint(equalTo: sulfurDioxideContainer.centerXAnchor),
+            sulfurDioxideStateImage.heightAnchor.constraint(equalToConstant: UI.stateImageSize),
+            sulfurDioxideStateImage.widthAnchor.constraint(equalToConstant: UI.stateImageSize)
             ])
         
         sulfurDioxideStateValue.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            sulfurDioxideStateValue.centerYAnchor.constraint(equalTo: sulfurDioxideContainer.centerYAnchor),
-            sulfurDioxideStateValue.leadingAnchor.constraint(equalTo: sulfurDioxideStateTitle.trailingAnchor, constant: UI.basicMargin),
+            sulfurDioxideStateValue.topAnchor.constraint(equalTo: sulfurDioxideStateImage.bottomAnchor, constant: 8),
+            sulfurDioxideStateValue.centerXAnchor.constraint(equalTo: sulfurDioxideContainer.centerXAnchor),
+            sulfurDioxideStateValue.leadingAnchor.constraint(equalTo: sulfurDioxideContainer.leadingAnchor),
             sulfurDioxideStateValue.trailingAnchor.constraint(equalTo: sulfurDioxideContainer.trailingAnchor)
             ])
         
         
         //Detail Infomation StackView
-        leftInnerStackView.distribution = .fillEqually
-        leftInnerStackView.axis = .vertical
+        firstStackView.distribution = .fillEqually
+        firstStackView.axis = .horizontal
         
-        rightInnerStackView.distribution = .fillEqually
-        rightInnerStackView.axis = .vertical
+        secondStackView.distribution = .fillEqually
+        secondStackView.axis = .horizontal
+        
+        thirdStackView.distribution = .fillEqually
+        thirdStackView.axis = .horizontal
         
         detailStateContainerStackView.distribution = .fillEqually
-        detailStateContainerStackView.axis = .horizontal
+        detailStateContainerStackView.axis = .vertical
         detailStateContainerStackView.spacing = 20
         
         detailStateContainerStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -420,7 +436,7 @@ final class DustDetail: UITableViewCell {
             detailStateContainerStackView.topAnchor.constraint(equalTo:  updateTitleLabel.bottomAnchor, constant: UI.basicMargin),
             detailStateContainerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UI.basicMargin),
             detailStateContainerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UI.basicMargin),
-            detailStateContainerStackView.heightAnchor.constraint(equalToConstant: UI.detailInfoStackViewHeight)
+            detailStateContainerStackView.heightAnchor.constraint(equalToConstant: 380)
         ])
         
         
@@ -430,12 +446,12 @@ final class DustDetail: UITableViewCell {
         guard let data = data.list.first else { return }
         
         // Detail Value
-        fineDustStateValue.text = data.pm10Value
-        ultrafineDustStateValue.text = data.pm25Value
-        nitrogenDioxideStateValue.text = data.no2Value
-        ozoneStateValue.text = data.o3Value
-        carbonMonoxideStateValue.text = data.coValue
-        sulfurDioxideStateValue.text = data.so2Value
+        fineDustStateValue.text = "\(data.pm10Value) ㎍/㎥"
+        ultrafineDustStateValue.text = "\(data.pm25Value) ㎍/㎥"
+        nitrogenDioxideStateValue.text = "\(data.no2Value) ppm"
+        ozoneStateValue.text = "\(data.o3Value) ppm"
+        carbonMonoxideStateValue.text = "\(data.coValue) ppm"
+        sulfurDioxideStateValue.text = "\(data.so2Value) ppm"
 
         // Detail Color
         fineDustStateImage.image = data.pm10Grade.convertValueToStateImage
@@ -444,6 +460,8 @@ final class DustDetail: UITableViewCell {
         ozoneStateImage.image = data.o3Grade.convertValueToStateImage
         carbonMonoxideStateImage.image = data.coGrade.convertValueToStateImage
         sulfurDioxideStateImage.image = data.so2Grade.convertValueToStateImage
+        
+        updateValueLabel.text = data.dataTime
     }
     
 }

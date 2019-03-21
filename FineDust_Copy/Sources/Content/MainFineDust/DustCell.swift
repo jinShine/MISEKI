@@ -56,18 +56,14 @@ class DustCell: UITableViewCell {
     
     let dustStateAngelCommnet: UILabel = {
         let label = UILabel()
-//        label.text = "😇 어린이, 노인, 노약자\n장시간 실외활동 가급적 자제하세요"
         label.textAlignment = .left
-        label.font = FontName.sfBold(20).font
         label.numberOfLines = 0
         return label
     }()
     
     let dustStateDevilCommnet: UILabel = {
         let label = UILabel()
-//        label.text = "뭐 어때~ 놀자! 👿"
         label.textAlignment = .right
-        label.font = FontName.sfBold(20).font
         label.numberOfLines = 0
         return label
     }()
@@ -300,16 +296,10 @@ class DustCell: UITableViewCell {
         dustStateImage.image = data.pm25Grade.convertValueToStateImage
         
         // Main Angel Commnet
-//        dustStateAngelCommnet.attributedText = data.pm25Grade.convertGradeToAngelComment
-        dustStateAngelCommnet.attributedText = "2".convertGradeToAngelComment
+        dustStateAngelCommnet.attributedText = data.pm25Grade.convertGradeToAngelComment
 
         // Main Devil Commnet
-//        dustStateDevilCommnet.attributedText = data.pm25Grade.convertGradeToDevilComment
-        dustStateDevilCommnet.attributedText = "2".convertGradeToDevilComment
-        
-//        dustStateAngelCommnet.text =
+        dustStateDevilCommnet.attributedText = data.pm25Grade.convertGradeToDevilComment
 
-
-        
     }
 }

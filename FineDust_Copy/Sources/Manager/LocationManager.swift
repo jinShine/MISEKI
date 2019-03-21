@@ -60,7 +60,7 @@ class LocationManager: NSObject {
     
     func reverseGeocoderLocation(completionHandler: @escaping (CLPlacemark) -> ()) {
         guard let location = locationManager.location else { return }
-        
+        print(location)
         geocoder.reverseGeocodeLocation(location) { placeMark, error in
             if error != nil {
                 print(error!.localizedDescription)
