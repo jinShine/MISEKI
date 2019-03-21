@@ -56,7 +56,7 @@ class DustCell: UITableViewCell {
     
     let dustStateAngelCommnet: UILabel = {
         let label = UILabel()
-        label.text = "😇 어린이, 노인, 노약자\n장시간 실외활동 가급적 자제하세요"
+//        label.text = "😇 어린이, 노인, 노약자\n장시간 실외활동 가급적 자제하세요"
         label.textAlignment = .left
         label.font = FontName.sfBold(20).font
         label.numberOfLines = 0
@@ -65,7 +65,7 @@ class DustCell: UITableViewCell {
     
     let dustStateDevilCommnet: UILabel = {
         let label = UILabel()
-        label.text = "뭐 어때~ 놀자! 👿"
+//        label.text = "뭐 어때~ 놀자! 👿"
         label.textAlignment = .right
         label.font = FontName.sfBold(20).font
         label.numberOfLines = 0
@@ -294,17 +294,19 @@ class DustCell: UITableViewCell {
         currentLocationLabel.text = currentLocation
         
         // Main State
-        dustStateValueLabel.text = data.pm10Grade.convertValueToStatus
+        dustStateValueLabel.text = data.pm25Grade.convertValueToStatus
         
         // Main State Image
-        dustStateImage.image = data.pm10Grade.convertValueToStateImage
+        dustStateImage.image = data.pm25Grade.convertValueToStateImage
         
         // Main Angel Commnet
-//        let dd = data.pm10Grade.convertGradeToAngelComment
-//        print("DDDDDDDDDDDDDDDD", dd)
-//        dustStateAngelCommnet.attributedText = data.pm10Grade.convertGradeToAngelComment
-        
+//        dustStateAngelCommnet.attributedText = data.pm25Grade.convertGradeToAngelComment
+        dustStateAngelCommnet.attributedText = "2".convertGradeToAngelComment
 
+        // Main Devil Commnet
+//        dustStateDevilCommnet.attributedText = data.pm25Grade.convertGradeToDevilComment
+        dustStateDevilCommnet.attributedText = "2".convertGradeToDevilComment
+        
 //        dustStateAngelCommnet.text =
 
 

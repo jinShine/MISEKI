@@ -181,9 +181,7 @@ final class DustStateGraph: UITableViewCell {
         UIView.animate(withDuration: 0.1, delay: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {}) { _ in
             self.progressView.setProgress(pm10Value / 100, animated: true)
         }
-        
         progressValue.text = "\(data.pm25Value)㎍/㎥"
-        
     }
     
 }

@@ -104,16 +104,15 @@ final class MainViewController: UIViewController {
         setupUI()
 //        setupBackgroundAnimation()
         setupNotification()
-        
-        
-        guard locationManager?.isUseLocationService() ?? false else {
-            locationAuthCheckAlert()
-            return
-        }
 
+        locationManager?.delegate = self
+        guard CLLocationManager.locationServicesEnabled() else { return }
+
+        
         updateRegion(notification: nil)
+        
     }
-    
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -269,6 +268,8 @@ extension MainViewController {
     @objc private func didTapLocation(_ sender: UIButton) {
         present(SearchAddressViewController(addressService: AddressService()), animated: true, completion: nil)
     }
+    
+    
 }
 
 
@@ -321,6 +322,23 @@ extension MainViewController: UITableViewDelegate {
             return UITableView.automaticDimension
         default:
             return 0
+        }
+    }
+}
+
+extension MainViewController: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        switch status {
+        case .notDetermined:
+            manager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            locationAuthCheckAlert()
+            break
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager?.updatingLocation()
+            updateRegion(notification: nil)
         }
     }
 }

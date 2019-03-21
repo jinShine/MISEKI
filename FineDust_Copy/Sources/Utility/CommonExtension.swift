@@ -58,54 +58,103 @@ extension String {
         
         switch self {
         case "1":
-            let attributeString = NSMutableAttributedString(string: "깨끗한",
-                                                        attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+            let attributeString = NSMutableAttributedString(string: "\n😇 깨끗한 ",
+                                                        attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                      NSAttributedString.Key.foregroundColor : UIColor.fromHexString("#0076FF")])
             attributeString.append(NSMutableAttributedString(string: "공기네요",
-                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                           NSAttributedString.Key.foregroundColor : UIColor.black]))
             return attributeString
         case "2":
-            let attributeString = NSMutableAttributedString(string: "다소 나쁜 공기!, ",
-                                                        attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+            let attributeString = NSMutableAttributedString(string: "\n😇 다소 나쁜 공기!\n",
+                                                        attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                      NSAttributedString.Key.foregroundColor : UIColor.black])
             attributeString.append(NSMutableAttributedString(string: "어린이, 노인, 노약자",
-                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                           NSAttributedString.Key.foregroundColor : UIColor.fromHexString("#0076FF")]))
             
             attributeString.append(NSMutableAttributedString(string: "등\n무리한 실외활동 자제해주세요",
-                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                           NSAttributedString.Key.foregroundColor : UIColor.black]))
             return attributeString
         case "3":
-            let attributeString = NSMutableAttributedString(string: "아주 나쁜 공기!, ",
-                                                        attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+            let attributeString = NSMutableAttributedString(string: "\n😇 아주 나쁜 공기!, ",
+                                                        attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                      NSAttributedString.Key.foregroundColor : UIColor.black])
             attributeString.append(NSMutableAttributedString(string: "어린이, 노인, 노약자",
-                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                           NSAttributedString.Key.foregroundColor : UIColor.fromHexString("#0076FF")]))
                 
             attributeString.append(NSMutableAttributedString(string: "등\n실외활동 제한해주세요!",
-                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                           NSAttributedString.Key.foregroundColor : UIColor.black]))
             return attributeString
         default:
-            let attributeString = NSMutableAttributedString(string: "최악의 공기!, ",
-                                                        attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+            let attributeString = NSMutableAttributedString(string: "\n😇 최악의 공기!, ",
+                                                        attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                      NSAttributedString.Key.foregroundColor : UIColor.black])
             attributeString.append(NSMutableAttributedString(string: "어린이, 노인, 노약자",
-                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                           NSAttributedString.Key.foregroundColor : UIColor.fromHexString("#0076FF")]))
             
             attributeString.append(NSMutableAttributedString(string: "등\n실내 활동해주세요!",
-                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20),
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
                                                                           NSAttributedString.Key.foregroundColor : UIColor.black]))
             return attributeString
             
         }
     }
     
-    
+    var convertGradeToDevilComment: NSMutableAttributedString {
+        
+        switch self {
+        case "1":
+            let attributeString = NSMutableAttributedString(string: "\n\n흥 ㅡㅡ 👿",
+                                                            attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                         NSAttributedString.Key.foregroundColor : UIColor.black])
+            return attributeString
+        case "2":
+            let attributeString = NSMutableAttributedString(string: "이정도는 ",
+                                                            attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                         NSAttributedString.Key.foregroundColor : UIColor.black])
+            attributeString.append(NSMutableAttributedString(string: "마스크 ",
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                          NSAttributedString.Key.foregroundColor : UIColor(white: 0, alpha: 0.5)]))
+            attributeString.append(NSMutableAttributedString(string: "꼭\n",
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                          NSAttributedString.Key.foregroundColor : UIColor.black]))
+            
+            attributeString.append(NSMutableAttributedString(string: "착용 안해도 되잖아? 👿",
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                          NSAttributedString.Key.foregroundColor : UIColor.black]))
+            return attributeString
+        case "3":
+            let attributeString = NSMutableAttributedString(string: "아주 나쁜 공기!, 👿",
+                                                            attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                         NSAttributedString.Key.foregroundColor : UIColor.black])
+            attributeString.append(NSMutableAttributedString(string: "어린이, 노인, 노약자",
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                          NSAttributedString.Key.foregroundColor : UIColor.fromHexString("#0076FF")]))
+            
+            attributeString.append(NSMutableAttributedString(string: "등\n실외활동 제한해주세요!",
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                          NSAttributedString.Key.foregroundColor : UIColor.black]))
+            return attributeString
+        default:
+            let attributeString = NSMutableAttributedString(string: "최악의 공기!, ",
+                                                            attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                         NSAttributedString.Key.foregroundColor : UIColor.black])
+            attributeString.append(NSMutableAttributedString(string: "어린이, 노인, 노약자",
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                          NSAttributedString.Key.foregroundColor : UIColor.fromHexString("#0076FF")]))
+            
+            attributeString.append(NSMutableAttributedString(string: "등\n실내 활동해주세요!",
+                                                             attributes: [NSAttributedString.Key.font : FontName.sfBold(20).font,
+                                                                          NSAttributedString.Key.foregroundColor : UIColor.black]))
+            return attributeString
+            
+        }
+    }
     
     
 }

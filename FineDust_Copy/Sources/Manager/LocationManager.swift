@@ -9,18 +9,28 @@
 import UIKit
 import CoreLocation
 
-class LocationManager {
+class LocationManager: NSObject {
     
     static let shared = LocationManager()
     private let locationManager = CLLocationManager()
     private let geocoder = CLGeocoder()
     
-    private init() {
+    private override init() {
+        super.init()
         checkAuthorizationStatus()
     }
     
     var currentLocation: CLLocation? {
         return locationManager.location
+    }
+    
+    var delegate: CLLocationManagerDelegate? {
+        get {
+            return locationManager.delegate
+        }
+        set {
+            locationManager.delegate = newValue
+        }
     }
     
     func checkAuthorizationStatus() {
@@ -34,7 +44,7 @@ class LocationManager {
         }
     }
     
-    private func updatingLocation() {
+    func updatingLocation() {
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.startUpdatingLocation()
     }
