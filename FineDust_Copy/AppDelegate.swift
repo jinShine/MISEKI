@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LocationManager.shared.checkAuthorizationStatus()
         
         // Background -> Foreground에 들어왔을때 현재 지역으로 업데이트
-        NotificationCenter.default.post(name: NSNotification.Name.init(App.Constant.updateRegion.rawValue), object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.init(App.Define.updateRegion.rawValue), object: nil, userInfo: nil)
     }
     
     private func setupKeyWindow() {
