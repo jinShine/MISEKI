@@ -155,7 +155,7 @@
 		5C66089C223B6D1A00138A73 /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
 		5C66089D223B6D1A00138A73 /* SF-Pro-Display-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BlackItalic.otf"; sourceTree = "<group>"; };
 		5C66089E223B6D1A00138A73 /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
-		5CAA0A35221BE28300BDE83B /* FineDust_Copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FineDust_Copy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CAA0A35221BE28300BDE83B /* MISEKI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MISEKI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAA0A38221BE28300BDE83B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CAA0A3D221BE28300BDE83B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CAA0A3F221BE28400BDE83B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 		5CAA0A2C221BE28300BDE83B = {
 			isa = PBXGroup;
 			children = (
-				5CAA0A37221BE28300BDE83B /* FineDust_Copy */,
+				5CAA0A37221BE28300BDE83B /* FIneDust_Copy */,
 				5C660855223A659100138A73 /* FineDustWidget */,
 				5CAA0A36221BE28300BDE83B /* Products */,
 				AD49F851CA92EB15F7D5A083 /* Pods */,
@@ -346,13 +346,13 @@
 		5CAA0A36221BE28300BDE83B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5CAA0A35221BE28300BDE83B /* FineDust_Copy.app */,
+				5CAA0A35221BE28300BDE83B /* MISEKI.app */,
 				5C660852223A659100138A73 /* FineDustWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5CAA0A37221BE28300BDE83B /* FineDust_Copy */ = {
+		5CAA0A37221BE28300BDE83B /* FIneDust_Copy */ = {
 			isa = PBXGroup;
 			children = (
 				5C660863223A660D00138A73 /* FineDust_Copy.entitlements */,
@@ -360,7 +360,7 @@
 				5C0AAB9D224A7F3400C4B8A0 /* Sources */,
 				5CAA0A4D221BE2DD00BDE83B /* Resources */,
 			);
-			path = FineDust_Copy;
+			path = FIneDust_Copy;
 			sourceTree = "<group>";
 		};
 		5CAA0A4D221BE2DD00BDE83B /* Resources */ = {
@@ -416,9 +416,9 @@
 			productReference = 5C660852223A659100138A73 /* FineDustWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		5CAA0A34221BE28300BDE83B /* FineDust_Copy */ = {
+		5CAA0A34221BE28300BDE83B /* MISEKI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5CAA0A47221BE28400BDE83B /* Build configuration list for PBXNativeTarget "FineDust_Copy" */;
+			buildConfigurationList = 5CAA0A47221BE28400BDE83B /* Build configuration list for PBXNativeTarget "MISEKI" */;
 			buildPhases = (
 				B8FA41CB10CF9ACC6E799BD0 /* [CP] Check Pods Manifest.lock */,
 				5CAA0A31221BE28300BDE83B /* Sources */,
@@ -432,9 +432,9 @@
 			dependencies = (
 				5C66085D223A659100138A73 /* PBXTargetDependency */,
 			);
-			name = FineDust_Copy;
+			name = MISEKI;
 			productName = FineDust_Copy;
-			productReference = 5CAA0A35221BE28300BDE83B /* FineDust_Copy.app */;
+			productReference = 5CAA0A35221BE28300BDE83B /* MISEKI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -460,7 +460,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5CAA0A30221BE28300BDE83B /* Build configuration list for PBXProject "FineDust_Copy" */;
+			buildConfigurationList = 5CAA0A30221BE28300BDE83B /* Build configuration list for PBXProject "MISEKI" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -473,7 +473,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5CAA0A34221BE28300BDE83B /* FineDust_Copy */,
+				5CAA0A34221BE28300BDE83B /* MISEKI */,
 				5C660851223A659100138A73 /* FineDustWidget */,
 			);
 		};
@@ -876,7 +876,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5CAA0A30221BE28300BDE83B /* Build configuration list for PBXProject "FineDust_Copy" */ = {
+		5CAA0A30221BE28300BDE83B /* Build configuration list for PBXProject "MISEKI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5CAA0A45221BE28400BDE83B /* Debug */,
@@ -885,7 +885,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5CAA0A47221BE28400BDE83B /* Build configuration list for PBXNativeTarget "FineDust_Copy" */ = {
+		5CAA0A47221BE28400BDE83B /* Build configuration list for PBXNativeTarget "MISEKI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5CAA0A48221BE28400BDE83B /* Debug */,
