@@ -33,10 +33,11 @@ final class SharingViewController: UIViewController {
 
     let kakaoSharing: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .yellow
+        button.setImage(UIImage(named: "Kakao_Logo"), for: .normal)
+        button.backgroundColor = UIColor.fromHexString("#ffe812")
         button.layer.cornerRadius = UI.sharingButtonSize / 2
         button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(didTapKakao(_:)), for: UIControl.Event.touchUpInside)
+        button.addTarget(self, action: #selector(didTapKakao(_:)), for: .touchUpInside)
         return button
     }()
 
