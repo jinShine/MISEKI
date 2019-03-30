@@ -28,8 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupKeyWindow() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let mainVC = MainViewController(fineDustService: FineDustService(), placeMark: PlaceMark()) // Discuss
-        window?.rootViewController = UINavigationController(rootViewController: mainVC)
+        self.window?.backgroundColor = .white
+        let mainVC = MainViewController(fineDustService: FineDustService(), placeMark: PlaceMark())
+        self.window?.rootViewController = UINavigationController(rootViewController: mainVC)
         window?.makeKeyAndVisible()
     }
 

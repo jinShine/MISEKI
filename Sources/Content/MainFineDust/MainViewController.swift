@@ -22,6 +22,13 @@ final class MainViewController: UIViewController {
     
     //MARK:- UI Property
     
+    let splashImageView: UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "MISEKI_Background")
+        imgView.contentMode = .scaleAspectFill
+        return imgView
+    }()
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -103,7 +110,6 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-//        setupBackgroundAnimation()
         setupNotification()
 
         locationManager?.delegate = self
@@ -124,6 +130,11 @@ final class MainViewController: UIViewController {
         
         [navigationContainerView, tableView].forEach { view.addSubview($0) }
         [findLocationButton, sharingButton, settingButton].forEach { navigationContainerView.addSubview($0) }
+        
+        // Splash View
+        splashImageView.frame = view.frame
+        view.addSubview(splashImageView)
+        view.bringSubviewToFront(splashImageView)
         
         // Custom Navigation
         navigationContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -224,6 +235,7 @@ extension MainViewController {
             guard let self = self else { return }
             switch response {
             case .success(let fineDustInfo):
+                self.splashViewHiddenAnimation()
                 print("", fineDustInfo)
                 self.mainFineDusts = fineDustInfo
                 self.tableView.reloadData()
@@ -267,10 +279,16 @@ extension MainViewController {
     }
     
     @objc private func didTapSharing(_ sender: UIButton) {
-        present(Navigator.sharing.viewController, animated: false, completion: nil)
+        present(Navigator.sharing(mainFineDusts, placeMark ?? PlaceMark()) .viewController, animated: false, completion: nil)
     }
     
-    
+    private func splashViewHiddenAnimation() {
+        UIView.animate(withDuration: 0.8, delay: 0, options: .curveEaseInOut, animations: {
+            self.splashImageView.alpha = 0
+        }, completion: { _ in
+            self.splashImageView.removeFromSuperview()
+        })
+    }
 }
 
 

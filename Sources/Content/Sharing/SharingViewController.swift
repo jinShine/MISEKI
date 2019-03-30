@@ -33,10 +33,11 @@ final class SharingViewController: UIViewController {
 
     let kakaoSharing: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .yellow
+        button.setImage(UIImage(named: "Kakao_Logo"), for: .normal)
+        button.backgroundColor = UIColor.fromHexString("#ffe812")
         button.layer.cornerRadius = UI.sharingButtonSize / 2
         button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(didTapKakao(_:)), for: UIControl.Event.touchUpInside)
+        button.addTarget(self, action: #selector(didTapKakao(_:)), for: .touchUpInside)
         return button
     }()
 
@@ -45,9 +46,19 @@ final class SharingViewController: UIViewController {
 
     //MARK:- Properties
 
+    private var fineDustModel: FineDustModel?
+    private var placeMark: PlaceMark?
 
 
     //MARK:- Initialize
+    
+    init(fineDustModel: FineDustModel, placeMark: PlaceMark) {
+        super.init(nibName: nil, bundle: nil)
+        self.fineDustModel = fineDustModel
+        self.placeMark = placeMark
+        
+        print("FineDust!!!!!!!!!!!!!!", self.fineDustModel)
+    }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
@@ -89,6 +100,10 @@ final class SharingViewController: UIViewController {
             sharingContainerView.addSubview($0)
         }
 
+        // view Tap Dissmiss
+        let viewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapBackgroundDismiss))
+        view.addGestureRecognizer(viewGestureRecognizer)
+
         sharingContainerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             sharingContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -107,43 +122,50 @@ final class SharingViewController: UIViewController {
 
     }
 
-    @objc private func didTapKakao(_ sender: UIButton) {
-        // Location 타입 템플릿 오브젝트 생성
-        let template = KMTLocationTemplate.init { (locationTemplateBuilder) in
-
-            // 주소
-            locationTemplateBuilder.address = "경기 성남시 분당구 판교역로 235 에이치스퀘어 N동 8층"
-            locationTemplateBuilder.addressTitle = "카카오 판교오피스 카페톡"
-
-            // 컨텐츠
-            locationTemplateBuilder.content = KMTContentObject.init(builderBlock: { (contentBuilder) in
-                contentBuilder.title = "신메뉴 출시❤️ 체리블라썸라떼"
-                contentBuilder.desc = "이번 주는 체리블라썸라떼 1+1"
-                contentBuilder.imageURL = URL.init(string: "http://mud-kage.kakao.co.kr/dn/bSbH9w/btqgegaEDfW/vD9KKV0hEintg6bZT4v4WK/kakaolink40_original.png")!
-                contentBuilder.link = KMTLinkObject.init(builderBlock: { (linkBuilder) in
-                    linkBuilder.mobileWebURL = URL.init(string: "https://developers.kakao.com")
-                })
-            })
-
-            // 소셜
-            locationTemplateBuilder.social = KMTSocialObject.init(builderBlock: { (socialBuilder) in
-                socialBuilder.likeCount = 286
-                socialBuilder.commnentCount = 45
-                socialBuilder.sharedCount = 845
-            })
-        }
-        // 카카오링크 실행
-        KLKTalkLinkCenter.shared().sendDefault(with: template, success: { (warningMsg, argumentMsg) in
-            print("warning message: \(warningMsg)")
-            print("argument message: \(argumentMsg)")
-
-        }, failure: { (error) in
-            print("error \(error)")
-
-        })
-    }
-
+    
 }
 
 //MARK:- Action Handle
 
+extension SharingViewController {
+    
+    @objc private func didTapKakao(_ sender: UIButton) {
+        let template = KMTFeedTemplate { feedTemplateBuilder in
+            feedTemplateBuilder.content = KMTContentObject(builderBlock: { contentBuilder in
+                contentBuilder.title = "미새끼"
+                contentBuilder.desc = "현재 \(self.placeMark?.administrativeArea ?? "") \(self.placeMark?.locality ?? "") \(self.placeMark?.subLocality ?? "") 미세먼지는 \(self.fineDustModel?.list.first?.pm25Value ?? "")㎍/㎥ '\(self.fineDustModel?.list.first?.pm25Grade.convertValueToStatus ?? "")' 입니다"
+                
+                contentBuilder.imageURL = URL(string: "https://i.imgur.com/lXFCOl1.png")!
+                contentBuilder.link = KMTLinkObject(builderBlock: { (linkBuilder) in
+                    linkBuilder.mobileWebURL = URL(string: "https://i.imgur.com/YTS3klJ.png")!
+                })
+            })
+            
+            feedTemplateBuilder.addButton(KMTButtonObject(builderBlock: { (buttonBuilder) in
+                buttonBuilder.title = "미새끼에서 보기"
+                buttonBuilder.link = KMTLinkObject(builderBlock: { (linkBuilder) in
+                    linkBuilder.iosExecutionParams = nil
+                    linkBuilder.androidExecutionParams = nil
+                })
+            }))
+        }
+        
+        // 카카오링크 실행
+        KLKTalkLinkCenter.shared().sendDefault(with: template, success: { (warningMsg, argumentMsg) in
+            
+            // 성공
+            print("warning message: \(String(describing: warningMsg))")
+            print("argument message: \(String(describing: argumentMsg))")
+            
+        }, failure: { (error) in
+            // 실패
+            print("error \(error)")
+            
+        })
+        
+    }
+
+    @objc private func didTapBackgroundDismiss() {
+        dismiss(animated: false, completion: nil)
+    }
+}

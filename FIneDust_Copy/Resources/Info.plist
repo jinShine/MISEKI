@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>MISEKI</string>
+	<string>미새끼</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -18,8 +18,27 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakaoe0033a805d7af18bac50f6619c876915</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>KAKAO_APP_KEY</key>
+	<string>e0033a805d7af18bac50f6619c876915</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kakaoe0033a805d7af18bac50f6619c876915</string>
+		<string>kakaolink</string>
+		<string>kakaotalk-5.9.7</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -69,25 +88,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>KAKAO_APP_KEY</key>
-	<string>e0033a805d7af18bac50f6619c876915</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>kakaoe0033a805d7af18bac50f6619c876915</string>
-            </array>
-        </dict>
-    </array>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>kakaoe0033a805d7af18bac50f6619c876915</string>
-        <string>kakaolink</string>
-        <string>kakaotalk-5.9.7</string>
-    </array>
-
 </dict>
 </plist>
