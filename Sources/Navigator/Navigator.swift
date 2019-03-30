@@ -11,7 +11,7 @@ import UIKit
 enum Navigator {
     case main
     case searchedAddress
-    case sharing
+    case sharing(FineDustModel, PlaceMark)
 }
 
 extension Navigator {
@@ -25,8 +25,8 @@ extension Navigator {
             let viewController: SearchAddressViewController = SearchAddressViewController(addressService: AddressService())
             return viewController
             
-        case .sharing:
-            let viewController: SharingViewController = SharingViewController()
+        case .sharing(let fineDust, let place):
+            let viewController: SharingViewController = SharingViewController(fineDustModel: fineDust, placeMark: place)
             viewController.modalPresentationStyle = .overCurrentContext
             return viewController
             
